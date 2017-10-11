@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+     <meta charset="UTF-8">
+
+    <!-- TIMELINE CSS -->
+
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/css/home.css">
+
+
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/jsrender/jsrender.min.js"></script>
+
+
+    <script type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default" id="navegacion">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                 <span class="sr-only">Toggle navigation</span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+               </button>
+                <a class="navbar-brand" href="#">Interfaz Oblicua</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Link 2</a></li>
+                </ul>
+            </div>
+
+
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="container-fluid">
+        <div class="section full-page" id="cover">
+            <div class="row">
+                <div class="col-md-2">
+                    <div id="intro-text">
+                        Estudio de diseño generativo <br/> data viz y data art
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="section " id="proyectos">
+            <div class="row"  >
+                <div class="col-md-2 hidden-sm hidden-xs">
+                    <div class="project-text" >
+                        Proyecto molon
+                        <br/>
+                        descripcion del proyecto<br/>
+                        nombre del cliente <br/>
+                        blablab
+                    </div>
+                </div>
+                <div class="col-md-9 col-md-offset-1">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                          <!-- Indicators -->
+                          <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                          </ol>
+
+                          <!-- Wrapper for slides -->
+                          <div class="carousel-inner">
+                            <div class="item active">
+                              <img src="images/proyectos/uned.gif" alt="">
+                              <div class="project-text-overlay hidden-md hidden-lg" > <span> descripcion del proyecto </span> </div>
+                            </div>
+
+                            <div class="item">
+                              <img src="images/proyectos/flab.jpg" alt="">
+                              <div class="project-text-overlay hidden-md hidden-lg" > <span> descripcion del proyecto 2 </span> </div>
+                            </div>
+                          </div>
+
+                          <!-- Left and right controls -->
+                          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                          </a>
+                          <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                          </a>
+                        </div>
+                </div> <!-- div col-md-9-->
+            </div>
+        </div>
+
+        <div class="section" id="servicios">
+            <h2 class="subtitle"> Servicios</h2>
+            <div class="row">
+                <div class="col-md-3 col-md-offset-3">
+                    <div class="service-text">
+                        <h3> Consultoría de datos </h3>
+                        <p> </p>
+                    </div>
+                    <div class="service-text">
+                        <h3> Diseño y desarrollo  </h3>
+                        <p> Visualizaciones/exploraciones avanzadas de datos para web u otros dispositivos </p>
+                    </div>
+                </div>
+                <div class =" col-md-3">
+                    <div class="service-text">
+                        <h3> Contenidos para pantallas públicas</h3>
+                        <p> Contenidos innovadores que realzan lugares y conversaciones.</p>
+                    </div>
+                    <div class="service-text">
+                        <h3> Experiencias </h3>
+                        <p> Diseño y desarrollo de instalaciones experienciales en museos   </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <p>
+                        Adaptamos el método al proyecto, apoyándonos en el diseño participativo y con una fuerte visión la experiencia de uso.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <div class="section" id="equipo">
+            <h2 class="subtitle"> Equipo</h2>
+            <div class="row">
+                <div class="col-sm-3 col-sm-offset-3">
+                    <div class="gente-grp">
+                        <h3> Sergio Galán</h3>
+                        <img src="images/sergio.jpg"/ class="img-responsive">
+                        <p> Diseñador de interacción y programador creativo. Para todo</p>
+                        <p class="redes"> rrss</p>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="gente-grp">
+                        <h3> Alfredo Calosci</h3>
+                        <img src="images/sergio.jpg"/ class="img-responsive">
+                        <p> Arquitecto de formación. Ahora diseña edificios de datos</p>
+                        <p class="redes"> rrss</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 col-sm-offset-3">
+                    <div class="gente-grp">
+                        <h3> Chema</h3>
+                        <img src="images/sergio.jpg"/ class="img-responsive">
+                        <p> Resuelve problemas. Gestiona proyectos</p>
+                        <p class="redes"> rrss</p>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="gente-grp">
+                        <h3> Guillermo Casado</h3>
+                        <img src="images/sergio.jpg"/ class="img-responsive">
+                        <p> Artista de la ciencia. Entre el museo y la calle </p>
+                        <p class="redes"> rrss</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
