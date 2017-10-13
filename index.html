@@ -4,13 +4,14 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-     <meta charset="UTF-8">
+    <meta charset="UTF-8">
 
     <!-- TIMELINE CSS -->
 
 
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/css/home.css">
+    <link rel="stylesheet" href="css/rotating-card.css">
 
 
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -65,64 +66,151 @@
 
 
         <div class="section " id="proyectos">
-            <div class="row"  >
+            <div class="row">
                 <div class="col-sm-5  col-sm-offset-1">
                     <div class="prj">
-                      <div class="image-prj">
-                          <video autoplay="autoplay" loop="loop" width="100%" poster="images/proyectos/uned.jpg">
-                            <source src="images/proyectos/uned.mp4" type="video/mp4" />
-                            <img class="img-responsive" src="images/proyectos/uned.jpg" />
-                          </video>
-                      </div>
-                      <div class="project-text" > <span>  </span> </div>
-                    </div>
-                </div>
-                <div class="col-sm-5  ">
-                    <div class="prj">
-                      <div class="image-prj"><img src="images/proyectos/flab.jpg" class="img-responsive"> </div>
-                      <div class="project-text" > <span>   </span> </div>
-                    </div>
-                </div> <!-- div col-sm-9-->
-            </div>
-            <div class="row"  >
-                <div class="col-sm-5  col-sm-offset-1">
-                    <div class="prj">
-                      <div class="image-prj"><img src="images/proyectos/vida15.jpg" class="img-responsive"> </div>
-                      <div class="project-text" > <span> </span> </div>
-                    </div>
-                </div>
-                <div class="col-sm-5  ">
-                    <div class="prj">
-                        <div class="image-prj">
-                            <video autoplay="autoplay" loop="loop" width="100%" poster="images/proyectos/ecf_short.jpg">
-                              <source src="images/proyectos/ecf_short.mp4" type="video/mp4" />
-                              <img class="img-responsive" src="images/proyectos/ecf_short.jpg" />
-                            </video>
+                        <div class="card-container manual-flip">
+                           <div class="card">
+                               <div class="front">
+                                    <div class="image-prj">
+                                        <video autoplay="autoplay" loop="loop" width="100%" poster="images/proyectos/uned.jpg">
+                                          <source src="images/proyectos/uned.mp4" type="video/mp4" />
+                                          <img class="img-responsive" src="images/proyectos/uned.jpg" />
+                                        </video>
+                                        <div class="goback"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div>
+                                    </div>
+                                </div>
+                                <div class="back"> <!-- pack side-page -->
+                                    <div class="project-text">
+                                        <div class="project-text-inner">
+                                            <h2 class="title"> Curriculum browser tool</h2>
+                                            <p class="description">
+                                                Description of the project in a few lines
+                                            </p>
+                                            <p class="client">
+                                                UNED
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      <div class="project-text" > <span>  </span> </div>
                     </div>
-                </div> <!-- div col-md-9-->
+                </div>
+                <div class="col-sm-5  ">
+                    <div class="prj">
+                        <div class="card-container manual-flip">
+                           <div class="card">
+                               <div class="front">
+                                    <div class="image-prj">
+                                        <img src="images/proyectos/flab.jpg" class="img-responsive">
+                                        <div class="goback"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div>
+                                    </div>
+                                </div>
+                                <div class="back"> <!-- pack side-page -->
+                                    <div class="project-text">
+                                        <div class="project-text-inner">
+                                            <h2 class="title"> Curriculum browser tool</h2>
+                                            <p class="description">
+                                                Description of the project in a few lines
+                                            </p>
+                                            <p class="client">
+                                                UNED
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- div col-sm-9-->
             </div>
-            <div style="text-align:center; font-weight:bold">
-                <a href="#"> +++ </a>
+            <div class="row">
+                <div class="col-sm-5  col-sm-offset-1">
+                    <div class="prj">
+                        <div class="card-container manual-flip">
+                           <div class="card">
+                               <div class="front">
+                                    <div class="image-prj">
+                                        <img src="images/proyectos/vida15.jpg" class="img-responsive">
+                                        <div class="goback"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div>
+                                    </div>
+                                </div>
+                                <div class="back"> <!-- pack side-page -->
+                                    <div class="project-text">
+                                        <div class="project-text-inner">
+                                            <h2 class="title"> Curriculum browser tool</h2>
+                                            <p class="description">
+                                                Description of the project in a few lines
+                                            </p>
+                                            <p class="client">
+                                                UNED
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-5  ">
+                    <div class="prj">
+                        <div class="card-container manual-flip">
+                           <div class="card">
+                               <div class="front">
+                                    <div class="image-prj">
+                                        <video autoplay="autoplay" loop="loop" width="100%" poster="images/proyectos/ecf_short.jpg">
+                                          <source src="images/proyectos/ecf_short.mp4" type="video/mp4" />
+                                          <img class="img-responsive" src="images/proyectos/ecf_short.jpg" />
+                                        </video>
+                                        <div class="goback"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div>
+                                    </div>
+                                </div>
+                                <div class="back"> <!-- pack side-page -->
+                                    <div class="project-text">
+                                        <div class="project-text-inner">
+                                            <h2 class="title"> Curriculum browser tool</h2>
+                                            <p class="description">
+                                                Description of the project in a few lines
+                                            </p>
+                                            <p class="client">
+                                                UNED
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- div col-md-9-->
             </div>
+
             <div id="moreprojects">
-                <div class="row"  >
+                <div class="row">
                     <div class="col-md-6">
                         <div class="prj">
-                          <div class="image-prj"><img src="images/proyectos/uned.gif" class="img-responsive"> </div>
-                          <div class="project-text" > <span> </span> </div>
+                            <div class="image-prj"><img src="images/proyectos/uned.gif" class="img-responsive"> </div>
+                            <div class="project-text"> <span> </span> </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="prj">
-                          <div class="image-prj"><img src="images/proyectos/flab.jpg" class="img-responsive"> </div>
-                          <div class="project-text" > <span> </span> </div>
+                            <div class="image-prj"><img src="images/proyectos/flab.jpg" class="img-responsive"> </div>
+                            <div class="project-text"> <span> </span> </div>
                         </div>
-                    </div> <!-- div col-md-9-->
+                    </div>
+                    <!-- div col-md-9-->
                 </div>
             </div>
-        </div> <!-- projects -->
+        </div>
+
+        <div style="text-align:center; font-weight:bold">
+            <a href="#" id="showmore"> ++load more projects++ </a>
+        </div>
+        <!-- projects -->
 
         <div class="section" id="servicios">
             <h2 class="subtitle"> Servicios</h2>
@@ -137,14 +225,14 @@
                         <p> Visualizaciones/exploraciones avanzadas de datos para web u otros dispositivos </p>
                     </div>
                 </div>
-                <div class =" col-md-3">
+                <div class=" col-md-3">
                     <div class="service-text">
                         <h3> Contenidos para pantallas públicas</h3>
                         <p> Contenidos innovadores que realzan lugares y conversaciones.</p>
                     </div>
                     <div class="service-text">
                         <h3> Experiencias </h3>
-                        <p> Diseño y desarrollo de instalaciones experienciales en museos   </p>
+                        <p> Diseño y desarrollo de instalaciones experienciales en museos </p>
                     </div>
                 </div>
             </div>
@@ -163,7 +251,7 @@
                 <div class="col-xs-3 col-md-2 col-md-offset-2">
                     <div class="gente-grp">
                         <h3> Sergio Galán</h3>
-                        <img src="images/sergio.jpg"/ class="img-responsive">
+                        <img src="images/sergio.jpg" / class="img-responsive">
                         <p> Diseñador de interacción y programador creativo. Para todo</p>
                         <p class="redes"> rrss</p>
                     </div>
@@ -171,15 +259,15 @@
                 <div class="col-xs-3 col-md-2 ">
                     <div class="gente-grp">
                         <h3> Alfredo Calosci</h3>
-                        <img src="images/sergio.jpg"/ class="img-responsive">
-                        <p> Arquitecto de formación. Ahora diseña edificios de datos</p>
+                        <img src="images/sergio.jpg" / class="img-responsive">
+                        <p> Arquitecto de formación. Arquitecto de Información. Ahora diseña edificios de datos</p>
                         <p class="redes"> rrss</p>
                     </div>
                 </div>
                 <div class="col-xs-3  col-md-2 ">
                     <div class="gente-grp">
                         <h3> Chema</h3>
-                        <img src="images/sergio.jpg"/ class="img-responsive">
+                        <img src="images/sergio.jpg" / class="img-responsive">
                         <p> Resuelve problemas. Gestiona proyectos</p>
                         <p class="redes"> rrss</p>
                     </div>
@@ -187,7 +275,7 @@
                 <div class="col-sm-3 col-md-2 ">
                     <div class="gente-grp">
                         <h3> Guillermo Casado</h3>
-                        <img src="images/sergio.jpg"/ class="img-responsive">
+                        <img src="images/sergio.jpg" / class="img-responsive">
                         <p> Artista de la ciencia. Entre el museo y la calle </p>
                         <p class="redes"> rrss</p>
                     </div>
