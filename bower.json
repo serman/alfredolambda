@@ -1,5 +1,5 @@
 {
-  "name": "traficomadrid",
+  "name": "Alfredolambda",
   "authors": [
     "Sergio <sergio@tinkerista.com>"
   ],
@@ -19,6 +19,6 @@
     "d3": "^4.10.2",
     "jquery": "^3.2.1",
     "jsrender": "^0.9.88",
-    "bootstrap": "https://github.com/twbs/bootstrap.git#^3.3.7"
+    "bootstrap": "v4.0.0-beta"
   }
 }

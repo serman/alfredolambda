@@ -1,0 +1,38 @@
+{
+        "vida15":{
+                "title":"Vida",
+                "client":"Telefonica",
+                "description":"meter descripcion",
+                "multimedia_image":"vida15"
+        },
+        "uned":{
+                "title":"Curriculum browser tool",
+                "client":"NED",
+                "description":"Curriculum browser tool",
+                "multimedia_video":"uned"
+        },
+        "ecf":{
+                "title":"Connected action commons",
+                "client":"ECF",
+                "description":"Curriculum browser tool",
+                "multimedia_video":"ecf_short"
+        },
+        "f_lab":{
+                "title":"F-LAB",
+                "client":"Museo Nacional Ciencia Tech",
+                "description":"Curriculum browser tool",
+                "multimedia_image":"flab"
+        },
+
+        "odm":{
+            "title":"ODM",
+            "client":"",
+            "description":"ojetivos milenio",
+            "multimedia_image":"odm",
+            "extra":"true"
+        }
+
+
+
+
+}
