@@ -23,9 +23,28 @@
                 "description":"Curriculum browser tool",
                 "multimedia_image":"flab"
         },
+        "abanca":{
+                "title":"Abanca",
+                "client":"Abanca",
+                "description":"Light installation",
+                "multimedia_image":"recoletos4_sede"
+        },
+        "escultura":{
+                "title":"Escultura Digital",
+                "client":"privado",
+                "description":"Esculturas en 3d con datos en tiempo real",
+                "multimedia_video":"escultura"
+        },
 
         "odm":{
             "title":"ODM",
+            "client":"",
+            "description":"ojetivos milenio",
+            "multimedia_image":"odm",
+            "extra":"true"
+        },
+        "medicos":{
+            "title":"Medicos del mundo",
             "client":"",
             "description":"ojetivos milenio",
             "multimedia_image":"odm",
