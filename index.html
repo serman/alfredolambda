@@ -11,11 +11,10 @@
 
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/css/home.css">
-    <link rel="stylesheet" href="css/rotating-card.css">
 
 
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
+    <script type="text/javascript" src="bower_components/popper.js/dist/umd/popper.min.js"></script>
     <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="bower_components/jsrender/jsrender.min.js"></script>
 
@@ -67,28 +66,25 @@
 
 
         <div class="section " id="proyectos">
-            <div class="row">
-                <div id="coverprojects">
+            <div class="row justify-content-center align-items-center" id="coverprojects">
 
-                </div>
             </div>
-
-            <div class="row">
-                <div id="moreprojects">
+            <div id="moreprojects-container" class="collapse">
+                <div class="row justify-content-center align-items-center " id="moreprojects">
 
                 </div>
             </div>
         </div>
 
         <div style="text-align:center; font-weight:bold">
-            <a href="#" id="showmore"> ++load more projects++ </a>
+            <a href="#" id="showmore"> ++ load more projects ++ </a>
         </div>
         <!-- projects -->
 
         <div class="section" id="servicios">
             <h2 class="subtitle"> Servicios</h2>
             <div class="row">
-                <div class="col-md-3 col-md-offset-3">
+                <div class="col-md-3 ml-md-auto">
                     <div class="service-text">
                         <h3> Consultoría de datos </h3>
                         <p> </p>
@@ -98,7 +94,7 @@
                         <p> Visualizaciones/exploraciones avanzadas de datos para web u otros dispositivos </p>
                     </div>
                 </div>
-                <div class=" col-md-3">
+                <div class=" col-md-3 mr-md-auto">
                     <div class="service-text">
                         <h3> Contenidos para pantallas públicas</h3>
                         <p> Contenidos innovadores que realzan lugares y conversaciones.</p>
@@ -109,8 +105,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
+            <div class="row justify-content-md-center">
+                <div class="col-md-6">
                     <p class="quote">
                         Adaptamos el método al proyecto, apoyándonos en el diseño participativo y con una fuerte visión la experiencia de uso.
                     </p>
@@ -121,10 +117,10 @@
         <div class="section" id="equipo">
             <h2 class="subtitle"> Equipo</h2>
             <div class="row">
-                <div class="col-xs-3 col-md-2 col-md-offset-2">
+                <div class="col-xs-3 col-md-2 ml-md-auto">
                     <div class="gente-grp">
                         <h3> Sergio Galán</h3>
-                        <img src="images/sergio.jpg" / class="img-responsive">
+                        <img src="images/sergio.jpg" / class="img-fluid">
                         <p> Diseñador de interacción y programador creativo. Para todo</p>
                         <p class="redes"> rrss</p>
                     </div>
@@ -132,7 +128,7 @@
                 <div class="col-xs-3 col-md-2 ">
                     <div class="gente-grp">
                         <h3> Alfredo Calosci</h3>
-                        <img src="images/alfredo.jpg" / class="img-responsive">
+                        <img src="images/alfredo.jpg" / class="img-fluid">
                         <p> Arquitecto de formación. Arquitecto de Información. Ahora diseña edificios de datos</p>
                         <p class="redes"> rrss</p>
                     </div>
@@ -140,15 +136,15 @@
                 <div class="col-xs-3  col-md-2 ">
                     <div class="gente-grp">
                         <h3> Chema</h3>
-                        <img src="images/sergio.jpg" / class="img-responsive">
+                        <img src="images/sergio.jpg" / class="img-fluid">
                         <p> Resuelve problemas. Gestiona proyectos</p>
                         <p class="redes"> rrss</p>
                     </div>
                 </div>
-                <div class="col-sm-3 col-md-2 ">
+                <div class="col-xs-3 col-md-2 mr-md-auto">
                     <div class="gente-grp">
                         <h3> Guillermo Casado</h3>
-                        <img src="images/sergio.jpg" / class="img-responsive">
+                        <img src="images/sergio.jpg" / class="img-fluid">
                         <p> Artista de la ciencia. Entre el museo y la calle </p>
                         <p class="redes"> rrss</p>
                     </div>

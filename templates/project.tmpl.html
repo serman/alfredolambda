@@ -1,45 +1,41 @@
 
 {{if firstColumn }}
-    <div class="col-md-5  col-md-offset-1 col-sm-10 col-sm-offset-1">
+    <div class="col-md-5 col-sm-10 prj-container">
 {{else}}
-    <div class="col-md-5 col-sm-10 col-sm-offset-1">
+    <div class="col-md-5 col-sm-10 prj-container">
 {{/if}}
-
         <div class="prj">
-            <div class="card-container manual-flip">
-               <div class="card">
-                   <div class="front">
-                        <div class="image-prj">
-                            {{if multimedia_video }}
-                            <div class="image-prj">
-                                <video autoplay="autoplay" loop="loop" width="100%" poster="images/proyectos/{{:multimedia_video}}.jpg">
-                                  <source src="images/proyectos/{{:multimedia_video}}.mp4" type="video/mp4" />
-                                  <img class="img-responsive" src="images/proyectos/{{:multimedia_video}}.jpg" />
-                                </video>
-                            </div>
-                            {{/if}}
-                            {{if multimedia_image }}
-                                <img src="images/proyectos/{{:multimedia_image}}.jpg" class="img-responsive" />
-                            {{/if}}
-                            <div class="goback"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div>
-                        </div>
+           <div class="front">
+                <div class="image-prj">
+                    {{if multimedia_video }}
+                    <div class="image-prj">
+                        <video autoplay="autoplay" loop="loop" width="100%" poster="images/proyectos/{{:multimedia_video}}.jpg">
+                          <source src="images/proyectos/{{:multimedia_video}}.mp4" type="video/mp4" />
+                          <img class="img-fluid" src="images/proyectos/{{:multimedia_video}}.jpg" />
+                        </video>
                     </div>
-                    <div class="back"> <!-- pack side-page -->
-                        <div class="project-text">
-                            <div class="project-text-inner">
-                                <h2 class="title"> {{:title}}</h2>
-                                <p class="description">
-                                    {{:description}}
-                                </p>
-                                <p class="client">
-                                    {{:client}}
-                                </p>
-                            </div>
-                        </div>
+                    {{/if}}
+                    {{if multimedia_image }}
+                        <img src="images/proyectos/{{:multimedia_image}}.jpg" class="img-fluid" />
+                    {{/if}}
+                    <div class="goback"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div>
+                </div>
+            </div>
+            <div class="back" style=""> <!-- pack side-page -->
+                <div class="project-text">
+                    <div class="project-text-inner">
+                        <h2 class="title"> {{:title}}</h2>
+                        <p class="description">
+                            {{:description}}
+                        </p>
+                        <p class="client">
+                            {{:client}}
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
+
 {{if counter%2!=0 }}
     </div>
 {{/if}}

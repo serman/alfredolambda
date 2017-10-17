@@ -14,34 +14,56 @@ body{
     }
 }
 .section {
-    min-height: 90vh;
+    min-height: 70vh;
 }
 
 #intro-text{
     font-size: 40px;
 }
+.prj{
+    margin-bottom:30px;
+    &.mouseover{
+        .front{
+            opacity: 0.1;
+        }
+    }
+    &:not(.mouseover) {
+      .back{
+          display: none;
+      }
+     }
+    .back{
+            position: absolute;
+            top:0px;
+            z-index: 2000px;
+    }
 
-.project-text{
-        font-size:30px;
+
+    .project-text{
+            font-size:30px;
+            width: 100%;
+            height:100%;
+            padding:60px;
+    }
+
+    .section-project{
+        background-position: center;
+        background-size: cover;
+        height: 100vh;
+    }
+
+    .project-text-overlay{
+        position: fixed;
+        top:0px;
         width: 100%;
-        height:100%;
-        padding:60px;
-}
-
-.section-project{
-    background-position: center;
-    background-size: cover;
-    height: 100vh;
-}
-.project-text-overlay{
-    position: fixed;
-    top:0px;
-    width: 100%;
-    text-align: center;
-    span{
-        background-color: black;
+        text-align: center;
+        span{
+            background-color: black;
+        }
     }
 }
+
+
 #proyectos{
     .row{
         margin-bottom: 60px;
@@ -68,7 +90,7 @@ body{
     }
 }
 #moreprojects{
-    display: none;
+
 }
 .nopadding{
     padding:0px;
@@ -81,49 +103,4 @@ body{
 .navbar-default{
     border:none;
     border-bottom: 1px dotted #fff;
-}
-
-
-/*******hover flipcards ^*****/
-/* entire container, keeps perspective */
-.flip-container {
-	perspective: 1000px;
-}
-	/* flip the pane when hovered */
-	.flip-container.hover .flipper {
-		transform: rotateY(180deg);
-	}
-
-.flip-container, .front, .back {
-	width: 100%;
-	height: 100%;
-}
-
-/* flip speed goes here */
-.flipper {
-	transition: 0.6s;
-	transform-style: preserve-3d;
-
-	position: relative;
-}
-
-/* hide back of pane during swap */
-.front, .back {
-	backface-visibility: hidden;
-
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-/* front pane, placed above back */
-.front {
-	z-index: 2;
-	/* for firefox 31 */
-	transform: rotateY(0deg);
-}
-
-/* back, initially hidden pane */
-.back {
-	transform: rotateY(180deg);
 }

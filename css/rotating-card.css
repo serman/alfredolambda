@@ -30,7 +30,7 @@
     transform: none;
 }
 /* flip speed goes here */
-.card {
+.card2 {
 	 -webkit-transition: -webkit-transform .5s;
    -moz-transition: -moz-transform .5s;
      -o-transition: -o-transform .5s;
@@ -77,7 +77,7 @@
 /*        Style       */
 
 
-.card{
+.card2{
     background: none repeat scroll 0 0 transparent;
     border-radius: 4px;
 }

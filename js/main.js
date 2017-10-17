@@ -4,8 +4,17 @@ window.onload = function() {
 
     $('#showmore').on('click',function(event){
         event.preventDefault();
-        $("#moreprojects").show();
-        setCardSizes()
+        console.log("kkkk")
+        $("#moreprojects-container").addClass('show');
+        $(this).attr("id","showless")
+        $(this).html("Ocultar")
+    })
+    
+    $('#showless').on('click',function(event){
+        event.preventDefault();
+        console.log("kkkk")
+        $("#moreprojects-container").removeClass('show');
+        $("this").html("Mostrar más")
     })
     renderProjects();
 
@@ -18,7 +27,9 @@ $( window ).resize(function() {
 function afterLoading(){
     if(n_projects==0){
         console.log("after loading ok")
-        $('.card-container').on('click',function(){$(this).toggleClass('hover') })
+        $('.prj:not(".mouseover")').on('touch',function(){$(this).toggleClass('mouseover') })
+        $('.prj').on('mouseover',function(){$(this).addClass('mouseover') })
+        $('.prj').on('mouseout',function(){$(this).removeClass('mouseover') })
         setCardSizes();
     }
 }
