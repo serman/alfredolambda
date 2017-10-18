@@ -2,15 +2,15 @@ n_projects=-1;
 window.onload = function() {
 
 
-    $('#showmore').on('click',function(event){
+    $('#showmore-container').on('click',"#showmore",function(event){
         event.preventDefault();
         console.log("kkkk")
         $("#moreprojects-container").addClass('show');
         $(this).attr("id","showless")
         $(this).html("Ocultar")
     })
-    
-    $('#showless').on('click',function(event){
+
+    $('#showmore-container').on('click',"#showless",function(event){
         event.preventDefault();
         console.log("kkkk")
         $("#moreprojects-container").removeClass('show');

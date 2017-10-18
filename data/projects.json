@@ -1,9 +1,9 @@
 {
-        "vida15":{
-                "title":"Vida",
-                "client":"Telefonica",
-                "description":"meter descripcion",
-                "multimedia_image":"vida15"
+        "ecf":{
+                "title":"Connected action commons",
+                "client":"ECF",
+                "description":"Curriculum browser tool",
+                "multimedia_video":"ecf_short"
         },
         "uned":{
                 "title":"Curriculum browser tool",
@@ -11,29 +11,31 @@
                 "description":"Curriculum browser tool",
                 "multimedia_video":"uned"
         },
-        "ecf":{
-                "title":"Connected action commons",
-                "client":"ECF",
-                "description":"Curriculum browser tool",
-                "multimedia_video":"ecf_short"
-        },
-        "f_lab":{
-                "title":"F-LAB",
+
+        "venmaquinas":{
+                "title":"Cómo ven las máquinas",
                 "client":"Museo Nacional Ciencia Tech",
-                "description":"Curriculum browser tool",
-                "multimedia_image":"flab"
-        },
-        "abanca":{
-                "title":"Abanca",
-                "client":"Abanca",
-                "description":"Light installation",
-                "multimedia_image":"recoletos4_sede"
+                "description":"Algorithm Visualization installation",
+                "multimedia_image":"venmaquinas2"
         },
         "escultura":{
                 "title":"Escultura Digital",
                 "client":"privado",
                 "description":"Esculturas en 3d con datos en tiempo real",
                 "multimedia_video":"escultura"
+        },
+        "vida15":{
+                "title":"Vida",
+                "client":"Telefonica",
+                "description":"meter descripcion",
+                "multimedia_image":"vida15"
+        },
+
+        "abanca":{
+                "title":"Abanca",
+                "client":"Abanca",
+                "description":"Light installation",
+                "multimedia_image":"recoletos4_sede"
         },
 
         "odm":{
