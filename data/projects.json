@@ -34,7 +34,7 @@
         "abanca":{
                 "title":"Abanca",
                 "client":"Abanca",
-                "description":"Light installation",
+                "description":"Matriz de leds programables",
                 "multimedia_image":"recoletos4_sede"
         },
 
@@ -46,9 +46,9 @@
             "extra":"true"
         },
         "medicos":{
-            "title":"Medicos del mundo",
-            "client":"",
-            "description":"ojetivos milenio",
+            "title":"Medicos del mundo - Informe anual",
+            "client":"Medicos del mundo",
+            "description":"Plataforma para la publicación on line del informe anual",
             "multimedia_image":"odm",
             "extra":"true"
         }
