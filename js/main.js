@@ -16,6 +16,7 @@ window.onload = function() {
         $("#moreprojects-container").removeClass('show');
         $("this").html("Mostrar más")
     })
+    renderIndex();
     renderProjects();
 
 }
@@ -43,6 +44,9 @@ function setCardSizes(){
     })
 }
 
+function renderIndex(){
+    my.utils().renderExtTemplate({ name: 'cover', selector: 'body', data: strings_es })
+}
 function renderProjects(){
     $.getJSON( "data/projects.json", function( data ) {
       var cnt_main=0;
@@ -50,8 +54,6 @@ function renderProjects(){
       n_projects=Object.keys(data).length;
 
       $.each( data, function( key, val ) {
-          console.log(key)
-
           if("extra" in val){
             if(cnt_extra%2==0) val.firstColumn=true;
             my.utils().renderExtTemplate({ name: 'project', selector: '#moreprojects', data: val })
@@ -65,7 +67,6 @@ function renderProjects(){
       });
 
     });
-
 }
 
 
