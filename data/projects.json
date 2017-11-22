@@ -24,6 +24,7 @@
                 "description":"Esculturas en 3d con datos en tiempo real",
                 "multimedia_video":"escultura"
         },
+        
         "vida15":{
                 "title":"Vida",
                 "client":"Telefonica",
@@ -40,11 +41,20 @@
 
         "odm":{
             "title":"ODM",
-            "client":"",
-            "description":"ojetivos milenio",
+            "client":"FarmaMundi",
+            "description":"INstalcion interactiva que navega a nivel global por los Ojetivos del Milenio",
             "multimedia_image":"odm",
             "extra":"true"
         },
+
+        "pillball":{
+            "title":"Pill·Ball",
+            "client":"FarmaMundi",
+            "description":"ojetivos milenio",
+            "multimedia_image":"pillball",
+            "extra":"true"
+        },
+
         "medicos":{
             "title":"Medicos del mundo - Informe anual",
             "client":"Medicos del mundo",
