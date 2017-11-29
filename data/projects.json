@@ -7,7 +7,7 @@
         },
         "uned":{
                 "title":"Curriculum browser tool",
-                "client":"NED",
+                "client":"UNED",
                 "description":"Curriculum browser tool",
                 "multimedia_video":"uned"
         },
@@ -24,7 +24,7 @@
                 "description":"Esculturas en 3d con datos en tiempo real",
                 "multimedia_video":"escultura"
         },
-        
+
         "vida15":{
                 "title":"Vida",
                 "client":"Telefonica",
