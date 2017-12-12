@@ -6,7 +6,7 @@ title:            Oblika
 tagline:          Design Data Interfaces
 description:      Making awesome software
 url:
-baseurl:          oblika.es/
+baseurl:          /
 
 languages: ["en", "es"]
 default_lang: "en"
