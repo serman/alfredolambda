@@ -1,0 +1,185 @@
+---
+layout: default
+title: Home
+lang: es
+---
+<section class="container full-page">
+
+    <div class="row spacedBottom">
+        <div class="col-sm-4 ">&nbsp;
+            <!--  <p >comunicación con algoritmos</p>-->
+            <!--<p class="claim">comunicación con algoritmos</p>-->
+        </div>
+        <div class="col-sm-8 ">
+            <!--<p class="claim">comunicación con algoritmos</p>-->
+            <p class="" style="margin-top:50%; margin-bottom:50%; font-size: 1.3em; margin-bottom:0; line-height: 1.5em; text-align:right; color:rgba(230,230,230,1);">
+                Trabajamos representando la <span class="rotulador2">información</span> con una doble vertiente analítica y visual
+                <span class="nrj">·</span> Creamos <span class="rotulador2">interfaces</span> avanzadas para navegar por el complejo mundo de los <span class="rotulador2">datos</span>
+                <br/> <br/>Imaginamos <span class="rotulador2">piezas</span> y <span class="rotulador2">espacios</span> que dan la bienvenida y arrancan conversaciones
+                <br/> Generamos <span class="rotulador2">diseño</span> visual con <span class="rotulador2">algoritmos</span>
+            </p>
+        </div>
+    </div>
+
+</section>
+
+<section class="container">
+    <div class="row spacedBottom">
+        <div class="col-sm-4">&nbsp;</div>
+        <div class="col-sm-8">
+            <hr/>
+            <h6 class="bloque">proyectos</h6>
+        </div>
+    </div>
+</section>
+
+<section class="container" id="prj_list">
+    {% for post in site.posts %} {% if post.extra %} {% else %}
+    <div class="prj row">
+        <div class="col-sm-3">
+            <h6>{{ post.title }}</h6>
+            <h6 class="client">{{ post.client }}</h6>
+            <h6>{{ post.description }}</h6>
+        </div>
+        <div class="col-sm-1">&nbsp;</div>
+
+        <div class="col-sm-8">
+            {% if post.video %}
+            <div class="image-prj">
+                <video autoplay="autoplay" loop="loop" width="100%" poster="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.jpg">
+                          <source src="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.mp4" type="video/mp4" />
+                          <img class="img-fluid" src="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.jpg" />
+                        </video>
+            </div>
+            {% endif %} {% if post.image %}
+            <img src="{{site.baseurl}}/public/images/proyectos/{{ post.image }}.jpg" class="img-responsive" /> {% endif %}
+        </div>
+    </div>
+    {% endif %} {% endfor %}
+
+    <!-- extra projects -->
+    <div id="moreprojects-container" class="collapse">
+        <div id="moreprojects">
+            {% for post in site.posts %} {% if post.extra %}
+            <div class="prj row">
+                <div class="col-sm-3">
+                    <h6>{{ post.title }}</h6>
+                    <h6 class="client">{{ post.client }}</h6>
+                    <h6>{{ post.description }}</h6>
+                </div>
+                <div class="col-sm-1">&nbsp;</div>
+
+                <div class="col-sm-8">
+                    {% if post.video %}
+                    <div class="image-prj">
+                        <video autoplay="autoplay" loop="loop" width="100%" poster="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.jpg">
+                                   <source src="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.mp4" type="video/mp4" />
+                                   <img class="img-fluid" src="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.jpg" />
+                                 </video>
+                    </div>
+                    {% endif %} {% if post.image %}
+                    <img src="{{site.baseurl}}/public/images/proyectos/{{ post.image }}.jpg" class="img-responsive" /> {% endif %}
+                </div>
+            </div>
+            {% endif %} {% endfor %}
+        </div>
+    </div>
+    <!---- extra projects -->
+
+    <div class="prj row">
+        <div class="col-sm-3">&nbsp;</div>
+
+        <div class="col-sm-8">
+            <button type="button" id="showmore" class="btn btn-outline-secondary btn-sm btn-block">Load more projects ...</button>
+        </div>
+    </div>
+
+</section>
+
+<section class="container" id="servicios">
+    <div class="row spacedBottom">
+
+        <div class="col-lg-3">&nbsp;</div>
+
+
+        <div class="col-lg-8">
+            <div class=" spacedBottom">
+                <div class="col">
+                    <h3> Consultoría de comunicación con datos  <span class="nrj">.</span> </h3>
+                    <p>Ayudamos a tu organización a extraer conocimiento de tus datos para facilitar su comprensión y su comunicación. </p>
+                </div>
+
+                <div class="col">
+                    <h3> Interfaces a medida para navegar por la información <span class="nrj">.</span></h3>
+                    <p> Diseñamos y desarrollamos soluciones a medida para navegar y explorar conjuntos de información compleja e interrelacionada.</p>
+                </div>
+            </div>
+
+            <div class=" spacedBottom">
+                <div class="col">
+                    <h3> Experiencias <br/> interactivas <span class="nrj">.</span> </h3>
+                    <p>Instalaciones inmersivas e interactivas para el descubrimiento, la divulgación y el aprendizaje en Museos y espacios públicos <span class="nrj">.</span></p>
+                </div>
+
+                <div class="col">
+                    <h3> Data-art y algoritmos de generación formal <span class="nrj">.</span></h3>
+                    <p>Contenidos digitales en grandes pantallas y con nuevos medios y tecnologías para contextos y públicos especiales Utilizamos la información y los datos como elementos a partir de los cuales crear animaciones y esculturas basadas en
+                        datos.</p>
+                </div>
+
+            </div>
+
+
+            <div class="row spacedBottom">
+                <div class="col">
+                    <hr/>
+                    <p class="bigger">Adaptamos el <span class="rotulador">método</span> al tipo proyecto, apoyándonos en el diseño <span class="rotulador">participativo</span> y con una gran consideración a la experiencia de uso.</p>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="row spacedBottom">
+
+        <div class="col-sm-3">&nbsp;</div>
+
+        <div class="col-sm-8">
+            <hr/>
+            <h6 class="bloque">equipo</h6>
+        </div>
+    </div>
+</section>
+
+<section class="container" id="team">
+    <div class="row spaced">
+                <div class="col-6 col-sm-3">
+                    <img src="{{site.baseurl}}/public/images/sergio.jpg" alt="sergio" class="img-responsive rounded-circle">
+                    <h5><span class="nombre">Sergio</span> Galán <span class="nrj">.</span></h5>
+                    <p>Diseñador de interacción y programador creativo. Para todo</p>
+                </div>
+
+                <div class="col-6 col-sm-3">
+                    <img src="{{site.baseurl}}/public/images/alfredo.jpg" alt="Alfredo" class="img-responsive rounded-circle">
+                    <h5><span class="nombre">Alfredo</span> Calosci <span class="nrj">.</span></h5>
+                    <p>Diseñador de interacción y programador creativo. Para todo</p>
+                </div>
+
+                <div class="col-6 col-sm-3">
+                    <img src="{{site.baseurl}}/public/images/chema.jpg" alt="chema" class="img-responsive rounded-circle">
+                    <h5><span class="nombre">Chema </span> Blanco <span class="nrj">.</span></h5>
+                    <p>Resuelve problemas. Gestiona proyectos</p>
+                </div>
+
+                <div class="col-6 col-sm-3">
+                    <img src="{{site.baseurl}}/public/images/guille.jpg" alt="guillermo" class="img-responsive rounded-circle">
+                    <h5><span class="nombre">Guillermo</span> Casado <span class="nrj">.</span></h5>
+                    <p>Artista de la ciencia. Entre el museo y la calle</p>
+                </div>
+    </div>
+</section>

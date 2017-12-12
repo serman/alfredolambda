@@ -1,0 +1,30 @@
+# Permalinks
+permalink:        /:title
+
+# Setup
+title:            Oblika
+tagline:          Design Data Interfaces
+description:      Making awesome software
+url:
+baseurl:          /oblika
+
+languages: ["en", "es"]
+default_lang: "en"
+exclude_from_localization: ["javascript", "images", "css"]
+parallel_localization: true
+
+# Pagination number
+#paginate:         10
+
+# category page
+collections:
+  category:
+    output: true
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: category
+    values:
+      layout: "category"

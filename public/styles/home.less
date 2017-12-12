@@ -1,0 +1,149 @@
+// out: css/home.css, sourcemap: true, compress: true
+p{ 
+
+}
+
+body{
+    background: black;
+    color:white;
+}
+h2.subtitle{
+    margin-bottom:1em;
+}
+
+#navegacion{
+    background:transparent;
+    .navbar-brand{
+        color:white;
+    }
+}
+.section {
+    min-height: 70vh;
+}
+
+#intro-text{
+    font-size: 40px;
+}
+.prj{
+
+    &.mouseover{
+        .front{
+            opacity: 0.3;
+        }
+    }
+    &:not(.mouseover) {
+      .back{
+          display: none;
+      }
+     }
+    .back{
+            position: absolute;
+            top:0px;
+            z-index: 2000px;
+    }
+    h2.title{
+        text-align: center;
+        margin-top:1em;
+        font-size: 20px;
+        font-weight: lighter;
+    }
+
+    .project-text{
+            font-size:30px;
+            width: 100%;
+            height:100%;
+            padding:60px;
+    }
+
+    .section-project{
+        background-position: center;
+        background-size: cover;
+        height: 100vh;
+    }
+
+    .project-text-overlay{
+        position: fixed;
+        top:0px;
+        width: 100%;
+        text-align: center;
+        span{
+            background-color: black;
+        }
+    }
+}
+
+
+#proyectos{
+    #coverprojects, #moreprojects{
+        margin-left:-16px;
+        margin-right:-16px;
+    }
+    .row{
+        //margin-bottom: 60px;
+    }
+    .project-text{
+        font-size: 16px;
+
+    }
+}
+#servicios{
+    .service-text{
+        margin-bottom:  30px;
+        min-height:     100px;
+    }
+    h3{
+
+    }
+    p{
+        color:#aaa;
+    }
+    p.quote{
+        font-size: 40px;
+        color:white;
+    }
+}
+#moreprojects{
+
+}
+.nopadding{
+    padding:0px;
+}
+
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+    max-width: auto;
+    width:100%;
+}
+.navbar-default{
+    border:none;
+    border-bottom: 1px dotted #fff;
+}
+
+
+
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 576px) {
+    #cover{
+        min-height: 100vh;
+        }
+    }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+
+}
+// Large devices (desktops, 992px and up)
+@media (max-width: 992px) {
+    .prj-container{
+        padding-bottom: 5px;
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    .prj-container{
+        padding-bottom: 5px;
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { }
