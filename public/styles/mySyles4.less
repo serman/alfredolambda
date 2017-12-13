@@ -192,8 +192,8 @@ p.bigger{
 
 h6{
   //font-weight: 800;
-  text-transform: uppercase;
-  text-transform: capitalize;
+  /*text-transform: uppercase;
+  text-transform: capitalize;*/
   margin-bottom: .15em;
   margin-top: .25em;
   font-family: 'Source Sans Pro', sans-serif;
@@ -250,7 +250,7 @@ p.claim{
   }
 }
 .rotulador2{
-    font-weight: 600;
+    font-weight: 300;
     color: @nrj;
 }
 
@@ -538,22 +538,21 @@ header{
 }
 nav{
     a{
-    font-family: 'Fira Sans', sans-serif;
-
-    font-weight: 100;
-    text-transform: capitalize;
-    background-color:@black;
+        font-family: 'Fira Sans', sans-serif;
+        font-weight: 100;
+        text-transform: capitalize;
+        background-color:@black;
     }
     .navbar-toggler{
         background-color:@black;
     }
     .navbar-brand img{
-        height:32px;
+        height:38px;
     }
 }
 
 
-#servicios{
+#services{
   h3{
     font-size: 1.3125em; /* 21px */
     line-height: 1.1429em; /* 24px */
@@ -618,7 +617,6 @@ nav{
 
 footer{
   margin-top: 3em;
-  margin-bottom: 3em;
 
   p{
     font-size: 0.7500em;
@@ -695,7 +693,7 @@ footer{
 }
 
 footer{
-  background-color: #000;
+  background-color: @black;
   border-top: 1px solid rgba(255,255,255,0.33);
   padding-top: 3em;
 }
@@ -849,4 +847,7 @@ button{
 }
 #moreprojects-container.show{
     display: block;
+}
+#showmore{
+    cursor: pointer;
 }
