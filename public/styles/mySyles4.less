@@ -1,9 +1,12 @@
-// out: css/myStyles4.css, sourcemap: true, compress: true
+out: css/myStyles4.css, sourcemap: true, compress: true
 //@nrj: #E76F34;
-@nrj:#4ECDC4;
+//@nrj:#4ECDC4;
+@nrj: rgb(0,200,0);
 @grigio: #999999;
 @grigio-chiaro: #efefef;
-@black: #000a0a;
+// @black: #000a0a;
+@black: rgb(0,16,16);
+@verde: rgb(0,200,0);
 
 .nrj{
   color: @nrj;
@@ -19,9 +22,16 @@
 
 
 //  font-family: 'Montserrat', sans-serif;
-//  font-family: 'Source Sans Pro', sans-serif;
+// font-family: 'Source Sans Pro', sans-serif;
+// font-family: 'Source Code Pro', monospace;
 
+html, .content {
+//  height: 100%;
+}
 
+.content{
+  //min-height: 100%;
+}
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
@@ -31,10 +41,129 @@ body {
   width: 100%;
   height: 100%;
 
-  background: #000;
-  background: rgb(0, 10, 10);
+  //background: #000;
+  //background: rgb(0, 10, 10);
+
+  background: @black;
   color: #fff;
+
+  -webkit-font-smoothing: subpixel-antialiased;
 }
+
+nav{
+  margin-top: 1.5em;
+
+    a{
+        // font-family: 'Fira Sans', sans-serif;
+        // font-weight: 100;
+        //text-transform: capitalize;
+        background-color:@black;
+        background-color:#000;
+        font-weight: 300;
+
+        &.navbar-brand{
+          font-family: 'Source Code Pro', monospace;
+          font-weight: 400;
+          text-transform: none;
+
+          span{
+            &.parentesi{
+              font-weight: 300;
+              color: @grigio;
+            }
+
+            &.pipe{
+              color: @verde;
+            }
+
+            &.claim{
+              color: @grigio;
+              font-size: 0.75em;
+              font-weight: 400;
+              padding-right: 0.5em;
+              display: block;
+              display: none;
+            }
+          }
+        }
+
+        &.nav-link.active{
+          color: @verde !important;
+        }
+    }
+
+  .navbar-toggler{
+      background-color:@black;
+      border: none;
+      cursor: pointer;
+
+      i{
+        color: @verde;
+
+      }
+  }
+
+  .navbar-brand img{
+    height:38px;
+  }
+
+  &.navbar{
+    padding: 0;
+  }
+
+.navbar-nav{
+
+  .nav-item{
+
+    a{
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.85em;
+      font-weight: 400;
+
+      color: rgba(255,255,255,0.75);
+      color: @grigio !important;
+
+
+
+      &.nav-link{
+        padding-left: 0;
+        padding-right: 0;
+
+        padding-right: 0.25em;
+      }
+
+      &:after{
+        content: "|";
+        color: rgba(255,255,255,0.25);
+        padding-left: 0.25em;
+      }
+
+      &:hover{
+        color: #fff !important;
+      }
+    }
+
+
+    &:last-child{
+      a{
+        &:after{
+          content: "";
+        }
+      }
+    }
+
+    &:first-child{
+      a{
+        padding-left: 0.75em;
+      }
+    }
+
+  }
+}
+
+}
+
+
 
 .slideout-menu {
   position: fixed;
@@ -181,7 +310,7 @@ p.bigger{
     margin-bottom: 24px;
 
     span.nrj{
-      font-family: 'Montserrat', sans-serif;
+    //  font-family: 'Montserrat', sans-serif;
     //  font-weight: 300;
     }
 
@@ -234,25 +363,22 @@ p.claim{
 }
 
 .rotulador{
-  background-color: rgb(128,128,128);
-  background-color: #474747;
-  //background-color: #ec5828;
-  //color: #000;
   font-weight: 400;
-  line-height: 1em;
-
-  padding-left: 4px;
-  padding-right: 4px;
-  color:#fff;
-
-  &:hover{
-  background-color: #ec5828;
-  }
 }
+
 .rotulador2{
     font-weight: 300;
-    color: @nrj;
+    color: @verde;
 }
+
+.rotulador_cyan{
+  color: #00ffff;
+}
+
+.rotulador_magenta{
+  color: #ff00ff;
+}
+
 
 h4, .class-for-18px {
   font-size: 1.1250em; /* 18px */
@@ -265,10 +391,31 @@ h5{
   color: #000;
 }
 
+
+
 h6{
   &.bloque{
-    text-transform: uppercase;
+    // text-transform: uppercase;
     text-align: right;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 300;
+    color: #fff;
+
+    &:before{
+      content: "////////";
+      float: left;
+      letter-spacing: -3px;
+      color: @verde;
+      color: rgb(0,240,240);
+      color: #9400d3;
+    }
+
+    &:after{
+      content: "]";
+      color: @grigio;
+      //font-family: 'Source Sans Pro', sans-serif;
+      padding-left: 0.5em;
+    }
 
   }
 }
@@ -311,7 +458,7 @@ h1,h2,h3{
 }
 
 h4{
-  font-family: 'Montserrat', sans-serif;
+  //font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -374,36 +521,8 @@ hr{
   }
 }
 
-
-.oio_brand{
-  p{
-    margin-bottom: 0;
-    //font-family: 'Montserrat', sans-serif;
-    font-size: 0.75em;
-    padding-left: 0.45em;
-    line-height: 1.1em;
-    color: rgba(255, 255, 255, 0.8);
-
-    span.de{
-      font-size: 0.75em;
-    }
-
-
-
-    &.oblicuas{
-      //font-family: 'Montserrat', sans-serif;
-      font-size: 2.5em;
-      font-weight: 700;
-      padding-left: 0;
-      color: rgba(255, 255, 255, 1);
-
-      span.domain{
-        font-size: 0.75em;
-        font-weight: 400;
-
-      }
-    }
-  }
+.tira{
+  margin-top: 3em;
 }
 
 header{
@@ -490,6 +609,86 @@ header{
   }
 }
 
+
+
+#home, #contact{
+  margin-top: 6em;
+  //min-height: 100%;
+
+  padding-bottom: 15em;
+
+  p{
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 300;
+    color: rgb(200,200,200);
+    margin-bottom: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+  //  background-color: rgb(32,32,32);
+    background-color: rgb(8,32,32);
+
+    text-indent: -3em;
+    padding-left: 3em;
+
+    &:hover{
+      // background-color: rgb(0,0,0);
+      span.number{
+        color: rgba(255,255,255,1);
+      }
+    }
+
+    span.number{
+      font-size: 0.75em;
+      padding-left: 1em;
+      padding-right: 1em;
+
+      color: rgba(255,255,255,0.4);
+      font-weight: 400;
+    }
+
+    span.rotulador{
+      font-weight: 400;
+    }
+
+    a{
+      font-weight: 400;
+      color: #fff;
+
+      &:hover{
+        text-decoration: none;
+        color: rgba(255,255,255,0.5);
+      }
+    }
+
+  }
+
+  a{
+    i{
+      padding-right: 0.25em;
+        color: rgba(255,255,255,0.5);
+    }
+
+    &:hover{
+      i{
+        color: #fff;
+      }
+    }
+  }
+}
+
+#contact{
+  margin-top: 0;
+  padding-bottom: 3em;
+
+  h6{
+    &.bloque{
+      &:before{
+        color:#ff8c00;
+      }
+    }
+  }
+}
+
 .sub_head{
 	height: 6.5em;
 }
@@ -509,69 +708,171 @@ header{
 }
 
 .prj{
-  margin-bottom: 3em;
+  margin-bottom: 1.5em; // 3
+  //background-color: #000;
+
+}
+
+.prj_side{
+//   background-color: #000;
+//   background-color: rgba(0,0,0,0.1);
+
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+
+  border: 1px solid #333;
+
+  &:hover{
+    background-color: #000;
+  }
+
 }
 
 #prj_list{
   h6{
     color: #fff;
+    font-weight: 300;
+    font-family: 'Source Code Pro', monospace;
+    margin-bottom: 0.75em;
+
+    &:first-child{
+      //border-top: 1px solid #666;
+      //border-bottom: 1px solid #666;
+      padding-top: 1.5em;
+      //padding-bottom: 1.5em;
+    }
+
 
     &:after{
+      //font-family: 'Source Sans Pro', sans-serif;
       content:".";
-      color: @nrj;
-      font-family: 'Montserrat', sans-serif;
+      color: #ff00ff;
+      color: #ff4500;
+      color: @verde;
+      color: #0000ff;
       font-weight: 900;
-      padding-left: 0.2em;
-
+      //padding-left: 0.2em;
     }
 
     &.client{
       color: rgba(255,255,255,0.5);
+      font-weight: 300;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-style: italic;
+
+      color: #00bfff;
+
       &:after{
         content:none;
-
-
       }
+
 
     }
   }
+
+  p{
+    color: @grigio;
+
+  }
 }
-nav{
-    a{
-        font-family: 'Fira Sans', sans-serif;
-        font-weight: 100;
-        text-transform: capitalize;
-        background-color:@black;
+
+#projects{
+  h6{
+    &.bloque{
+      &:before{
+        color:#00bfff;
+      }
     }
-    .navbar-toggler{
-        background-color:@black;
-    }
-    .navbar-brand img{
-        height:38px;
-    }
+  }
 }
 
 
 #services{
   h3{
     font-size: 1.3125em; /* 21px */
-    line-height: 1.1429em; /* 24px */
-    margin-top: 0.000em;  margin-bottom: 1.1429em;
-    font-weight: 600;
-    //font-family: 'Montserrat', sans-serif;
+  //  line-height: 1.1429em; /* 24px */
+    line-height: 1.333em;
+    margin-top: 0.000em;
+  //  margin-bottom: 1.1429em;
+    margin-bottom: 1.333em;
+    font-weight: 700;
 
     span.nrj{
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
+      font-weight: 400;
+      letter-spacing: -4px;
     }
+  }
+
+  // alt
+  h3{
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 300;
+    font-size: 1em;
+
+    text-indent: -1.25em;
+    padding-left: 1.25em;
+
+    &:before{
+      content: "[";
+      color: @grigio;
+      font-weight: 300;
+    }
+
+    &:after{
+        content: " ...";
+        letter-spacing: -3px;
+        //font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 900;
+        color: #0000ff;
+        color: #8b008b;
+        //padding-left: 0.25em;
+    }
+
   }
 
   p{
     color: rgba(255,255,255,0.75);
     line-height: 1.333em;
 
+    //text-indent: -1.25em;
+    padding-left: 1.25em;
+
     &.bigger{
       color: rgba(255,255,255,1);
+      padding-left:0;
+    }
+
+    &.side_txt{
+      // font-size: 1.25em;
+      color:#fff;
+      text-indent: 0;
+      padding-left:0;
+
+      // border-top: 1px solid #333;
+      // border-bottom: 1px solid #333;
+
+      border-left: 1px solid #666;
+      padding-left: 1em;
+      // letter-spacing: -0.5px;
+
+      font-family: 'Source Code Pro', monospace;
+      padding-right: 2em;
+
+      //padding-top: 1.5em;
+      //padding-bottom: 1.5em;
+
+      span.rotulador2{
+        color: #ff8c00 !important;
+        color: #ff00ff !important;
+      }
+    }
+  }
+
+  h6{
+    &.bloque{
+      &:before{
+        color: #9400d3;
+      }
     }
   }
 }
@@ -602,7 +903,7 @@ nav{
       }
 
       &.nrj{
-        font-family: 'Montserrat', sans-serif;
+        //font-family: 'Montserrat', sans-serif;
         font-weight: 900;
       }
     }
@@ -613,14 +914,45 @@ nav{
     color: rgba(255,255,255,1);
     line-height: 1.333em; /* 24px */
   }
+
+  h6{
+    &.bloque{
+      &:before{
+        color:@verde;
+      }
+    }
+  }
 }
 
+
 footer{
+  font-family: 'Source Code Pro', monospace;
+
   margin-top: 3em;
+  //margin-bottom: 3em;
+
+  // background-color: @black;
+  background-color: #000;
+  border-top: 1px solid rgba(255,255,255,0.25);
+  padding-top: 3em;
+  padding-bottom: 3em;
+
 
   p{
     font-size: 0.7500em;
     line-height: 2.0000em;
+
+    color: @grigio;
+  }
+
+  a{
+    color: #fff;
+    font-weight: 400;
+
+    &:hover{
+      color: @verde;
+      text-decoration: none;
+    }
   }
 
   div.container{
@@ -649,88 +981,12 @@ footer{
   }
 }
 
-#copertina{
-  height: 640px;
-  height: 480px;
-  border-bottom: 1px solid @grigio-chiaro;
-  margin-bottom: 1.5em;
-  position: relative;
-  // tmp
-  background-color: #666;
 
-  .container{
-    height: 100%;
 
-    .titolo{
-      position: absolute;
-      bottom: 3em;
-      right: 6em;
-      width: 33.3333%;
 
-      background-color: rgba(10, 10, 0,.33);
-      padding-right: 1.5em;
-      padding-bottom: 1.5em;
-    }
-  }
 
-  h1{
-    color: rgba(255, 255, 255, 1);
-    text-align: right;
-    text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
-    font-weight: 700;
-  }
 
-  h3{
-    color: rgba(255, 255, 255, 1);
-    text-align: right;
-    margin-top: 0.5em;
-    line-height: 1em;
-    //text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
-    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
-    font-weight: 700;
 
-  }
-}
-
-footer{
-  background-color: @black;
-  border-top: 1px solid rgba(255,255,255,0.33);
-  padding-top: 3em;
-}
-
-// pubblicazioni
-.testo, .progetto{
-  padding-bottom: 3em;
-
-  p{
-    color: @grigio;
-    margin-bottom: 0;
-  }
-
-  h2{
-    margin-top: 0;
-  }
-
-  h4{
-    margin-top: 0;
-    margin-bottom: 0;
-
-    padding-left: 1.3333em;
-  }
-
-  h2 + p, h4 + p{
-    color: #333;
-    padding-left: 1.5em;
-  }
-
-}
-
-.progetto{
-  h2{
-    line-height: 1em;
-    margin-bottom: 0.25em;
-  }
-}
 
 a.url{
   padding-bottom: 0.75em;
@@ -816,6 +1072,18 @@ button{
   }
 }
 
+#moreprojects-container{
+    display: none;
+}
+#moreprojects-container.show{
+    display: block;
+}
+#showmore, #showless{
+    cursor: pointer;
+    font-family: 'Source Code Pro', monospace;
+    border-color: #333;
+}
+
 @media (min-width: 768px) {
   .slideout-menu {
     width: 256px;
@@ -827,6 +1095,18 @@ button{
       font-size: 2.1250em;
     }
 
+  }
+
+  nav{
+    a{
+      &.navbar-brand{
+        span{
+          &.claim{
+            display: inline;
+            }
+          }
+        }
+    }
   }
 }
 
@@ -840,14 +1120,4 @@ button{
   .container{
     width: 960px;
   }
-}
-
-#moreprojects-container{
-    display: none;
-}
-#moreprojects-container.show{
-    display: block;
-}
-#showmore{
-    cursor: pointer;
 }

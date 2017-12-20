@@ -1,34 +1,85 @@
 <!--Footer-->
 <footer>
 
-      <section class="container">
+    <section class="container">
       <div class="row">
-        <div class="col">
-            <p>this is the footer</p>
-          </div>
 
-          <div class="col">
-               <p class="simple-footer" align="center">&copy; {{ site.time | date: '%Y' }} <a class="simple-footer" href="{{ site.baseurl }}/">{{ site.title }}</a></p>
-            </div>
+        <div class="col-sm-4">
+          <p class="simple-footer">{{ site.time | date: '%Y' }} <span class="rotulador2">|</span> <a class="simple-footer" href="{{ site.baseurl }}/">oblika</a>.es</p>
+      <!--     <p class="simple-footer">&copy; {{ site.time | date: '%Y' }} <a class="simple-footer" href="{{ site.baseurl }}/">{{ site.title }}</a></p>-->
+        </div>
 
-            <div class="col">
-                <p>this is the footer</p>
-              </div>
+        <div class="col-sm-4">
+            <p>your data communication agency</p>
+        </div>
+
+        <div class="col-sm-4 text-right">
+          <p>[ <a href="mailto:info@oblika.es">info@oblika.es</a> ]</p>
+        </div>
+
       </div>
     </section>
 
 
-  	<script src="https://use.fontawesome.com/354fa17669.js"></script>
+  <script src="https://use.fontawesome.com/354fa17669.js"></script>
   <!-- Bootstrap JS -->
 
   <script src="{{ site.baseurl }}/public/js/jquery-3.2.1.min.js"></script>
 	<script src="{{ site.baseurl }}/public/js/tether.min.js"></script>
-    <script type="text/javascript" src="{{ site.baseurl }}/public/bower_components/popper.js/dist/umd/popper.min.js"></script>
+  <script type="text/javascript" src="{{ site.baseurl }}/public/bower_components/popper.js/dist/umd/popper.min.js"></script>
   <script src="{{ site.baseurl }}/public/js/bootstrap.min.js"></script>
 
  <script src="{{ site.baseurl }}/public/js/main.js"></script>
    <!-- slideout -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+
+   <script>
+   // smooth scroll
+   $('a[href*="#"]').on('click', function (e) {
+	    e.preventDefault();
+
+	     $('html, body').animate({
+		       scrollTop: $($(this).attr('href')).offset().top - 120
+	        }, 500, 'linear');
+      });
+
+
+  // hide navbar on scroll down
+  $(function () {
+    var lastScrollTop = 0;
+    var $navbar = $('.navbar');
+
+  $(window).scroll(function(event){
+    var st = $(this).scrollTop();
+
+    if (st > lastScrollTop) { // scroll down
+
+      // use this is jQuery full is used
+      $navbar.fadeOut()
+
+      // use this to use CSS3 animation
+      // $navbar.addClass("fade-out");
+      // $navbar.removeClass("fade-in");
+
+      // use this if no effect is required
+      // $navbar.hide();
+    } else { // scroll up
+
+      // use this is jQuery full is used
+      $navbar.fadeIn()
+
+      // use this to use CSS3 animation
+      // $navbar.addClass("fade-in");
+      // $navbar.removeClass("fade-out");
+
+      // use this if no effect is required
+      // $navbar.show();
+    }
+    lastScrollTop = st;
+  });
+});
+
+</script>
 
 </footer>
 <!--/.Footer-->
