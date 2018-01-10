@@ -8,6 +8,19 @@ out: css/myStyles4.css, sourcemap: true, compress: true
 @black: rgb(0,16,16);
 @verde: rgb(0,200,0);
 
+li.language-switch{
+    border: none;
+    margin-left:1em;
+    a:after{
+          content: ""!important;
+          color: rgba(255,255,255,0.0);
+          padding-left: 0.25em;
+    }
+}
+.en:lang(en), .es:lang(es){
+    display: none;
+}
+
 .nrj{
   color: @nrj;
 }

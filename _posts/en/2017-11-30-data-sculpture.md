@@ -1,14 +1,14 @@
 ---
-title: Pill·Ball
+title: Escultura Digital
 date: 2017-07-31T12:31:53+00:00
 layout: post
-image: pillball
-client: FarmaMundi
-description : "ojetivos milenio"
-lang: es
-extra: true
+video: escultura
+client: privado
+description : Esculturas en 3D con datos en tiempo real.
 categories:
   - Uncategorized
+lang: en  
+ref: data-sculpture
 ---
 
 otro

@@ -2,6 +2,7 @@
 layout: default
 title: Home
 lang: es
+ref: home
 ---
 <section class="container h-100" id="home">
 
@@ -42,54 +43,16 @@ lang: es
 </section>
 
 <section class="container" id="prj_list">
-    {% for post in site.posts %} {% if post.extra %} {% else %}
-    <div class="prj row">
-
-        <div class="col-sm-3 prj_side">
-            <h6>{{ post.title }}</h6>
-            <h6 class="client">{{ post.client }}</h6>
-            <p>{{ post.description }}</p>
-        </div>
-
-
-
-        <div class="col-sm-8 offset-sm-1">
-            {% if post.video %}
-            <div class="image-prj">
-                <video autoplay="autoplay" loop="loop" width="100%" poster="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.jpg">
-                          <source src="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.mp4" type="video/mp4" />
-                          <img class="img-fluid" src="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.jpg" />
-                </video>
-            </div>
-            {% endif %} {% if post.image %}
-            <img src="{{site.baseurl}}/public/images/proyectos/{{ post.image }}.jpg" class="img-responsive" /> {% endif %}
-        </div>
-    </div>
+    {% assign posts=site.posts | where:"lang", page.lang %}
+    {% for post in posts %} {% if post.extra %} {% else %}
+        {%  include project_list.html content=post  %}
     {% endif %} {% endfor %}
 
     <!-- extra projects -->
     <div id="moreprojects-container" class="collapse">
         <div id="moreprojects">
-            {% for post in site.posts %} {% if post.extra %}
-            <div class="prj row">
-                <div class="col-sm-3 prj_side">
-                    <h6>{{ post.title }}</h6>
-                    <h6 class="client">{{ post.client }}</h6>
-                    <p>{{ post.description }}</p>
-                </div>
-
-                <div class="col-sm-8 offset-sm-1">
-                    {% if post.video %}
-                    <div class="image-prj">
-                        <video autoplay="autoplay" loop="loop" width="100%" poster="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.jpg">
-                                   <source src="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.mp4" type="video/mp4" />
-                                   <img class="img-fluid" src="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.jpg" />
-                                 </video>
-                    </div>
-                    {% endif %} {% if post.image %}
-                    <img src="{{site.baseurl}}/public/images/proyectos/{{ post.image }}.jpg" class="img-responsive" /> {% endif %}
-                </div>
-            </div>
+            {% for post in posts %} {% if post.extra %}
+                {%  include project_list.html content=post  %}
             {% endif %} {% endfor %}
         </div>
     </div>
@@ -174,25 +137,25 @@ lang: es
   </div>
 
     <div class="row spaced">
-          <div class="col-xs-6 col-sm-3">
+          <div class="col-4 ">
               <img src="{{site.baseurl}}/public/images/sergio.jpg" alt="sergio" class="img-responsive rounded-circle">
               <h5><span class="nombre">Sergio</span> Galán <span class="nrj">.</span></h5>
               <p>Diseñador de interacción y programador creativo. Para todo</p>
           </div>
 
-            <div class="col-sm-3">
+            <div class="col-4">
                 <img src="{{site.baseurl}}/public/images/alfredo.jpg" alt="Alfredo" class="img-responsive rounded-circle">
                 <h5><span class="nombre">Alfredo</span> Calosci <span class="nrj">.</span></h5>
                 <p>Diseño, programo, enseño ... para la comunicación</p>
             </div>
 
-            <div class="col-sm-3">
+            <!--<div class="col-sm-3">
               <img src="{{site.baseurl}}/public/images/chema.jpg" alt="chema" class="img-responsive rounded-circle">
               <h5><span class="nombre">Chema </span> Blanco <span class="nrj">.</span></h5>
               <p>Resuelve problemas. Gestiona proyectos</p>
-            </div>
+          </div> -->
 
-            <div class="col-sm-3">
+            <div class="col-4">
                 <img src="{{site.baseurl}}/public/images/guille.jpg" alt="guillermo" class="img-responsive rounded-circle">
                 <h5><span class="nombre">Guillermo</span> Casado <span class="nrj">.</span></h5>
                 <p>Artista de la ciencia. Entre el museo y la calle</p>

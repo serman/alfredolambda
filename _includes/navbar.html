@@ -3,7 +3,7 @@
 
           <a class="navbar-brand" href="#">
             <!--<img src="{{ site.baseurl }}/public/images/logo.png" alt=""/>-->
-            <span class="parentesi">[ </span> oblika <span class="pipe">|</span> <span class="claim">communication by algorithms</span>
+            <span class="parentesi">[ </span> oblika <span class="pipe">|</span> <span class="claim"> {{site.claim[page.lang]}} </span>
           </a>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -13,21 +13,19 @@
 
           <div class="collapse navbar-collapse"  id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
+                {% for menu in site.t[page.lang] %}
                 <li class="nav-item">
-                  <a class="nav-link" href="#home">home</a>
+                  <a class="nav-link" href="{{ menu[1].url }}">{{ menu[1].name }}</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#projects">proyectos</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#services">servicios</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link " href="#team">equipo</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link " href="#contact">contacto</a>
-                </li>
+                  {% endfor %}
+                  {% assign pages=site.pages | where:"ref", page.ref | sort: 'lang' %}
+                  {% for page in pages %}
+                  <li class="nav-item language-switch">
+                     <a href="{{ page.url }}" class="{{ page.lang }}">{{ page.lang }}</a>
+                  </li>
+                  {% endfor %}
+
+
             </ul>
           </div>
         </nav>

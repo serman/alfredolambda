@@ -1,13 +1,14 @@
 ---
-title: Vida
+title: Escultura Digital
 date: 2017-07-31T12:31:53+00:00
 layout: post
-image: vida15
-client: Telefonica
-description : meter descripcion
-lang: es
+video: escultura
+client: privado
+description : Esculturas en 3D con datos en tiempo real.
 categories:
   - Uncategorized
+lang: es  
+ref: data-sculpture
 ---
 
 otro

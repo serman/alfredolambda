@@ -5,7 +5,7 @@ permalink:        /:title
 title:            Oblika
 tagline:          Design Data Interfaces
 description:      Making awesome software
-baseurl:          
+baseurl:
 
 languages: ["en", "es"]
 default_lang: "en"
@@ -27,3 +27,40 @@ defaults:
       type: category
     values:
       layout: "category"
+claim:
+    en: "Communicaton with algorithms"
+    es: "Comunicación con algoritmos"
+#menu translation
+t:
+  en:
+    home:
+      name: "Home"
+      url: "/"
+    projects:
+      name: "Projects"
+      url: "#projects"
+    services:
+      name: "Services"
+      url: "#services"
+    team:
+      name: "Team"
+      url: "#team"
+    contact:
+      name: "Contact"
+      url: "#contact"
+  es:
+      home:
+        name: "Home"
+        url: "/"
+      projects:
+        name: "Proyectos"
+        url: "#projects"
+      services:
+        name: "Servicios"
+        url: "#services"
+      team:
+        name: "Equipo"
+        url: "#team"
+      contact:
+        name: "Contacto"
+        url: "#contact"
