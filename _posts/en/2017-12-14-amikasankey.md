@@ -5,7 +5,7 @@ layout: post
 image: amicasankey
 client: DTU Technical University of Denmark
 
-description : Sankey diagrams using data contained in neo4j graph database. Data comes from an extensive semantics analysis of publications.
+description : Sankey diagrams using data contained in neo4j graph database. Data comes from an extensive semantic analysis of scientific publications and patents. The goal is detecting opportunities in the field of biofuels.
 demo-url: http://dtu.amica-pathfinder.net/amicasankey
 categories:
   - d3
@@ -13,6 +13,7 @@ categories:
 lang: en
 ref: amicasankey
 ---
+
 
 Project description
 

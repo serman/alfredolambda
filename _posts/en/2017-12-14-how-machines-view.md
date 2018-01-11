@@ -5,7 +5,7 @@ layout: post
 image: venmaquinas2
 client: Museo Nacional Ciencia Tech
 
-description : Interactive installation where participants explore and play computer vision algorithms in 
+description : Interactive installation where participants explore and play computer vision algorithms. 
 categories:
   - AI
 lang: en
