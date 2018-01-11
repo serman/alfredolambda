@@ -1,6 +1,5 @@
-out: css/myStyles4.css, sourcemap: true, compress: true
-//@nrj: #E76F34;
-//@nrj:#4ECDC4;
+//out: css/myStyles4.css, sourcemap: true, compress: true
+
 @nrj: rgb(0,200,0);
 @grigio: #999999;
 @grigio-chiaro: #efefef;
@@ -752,6 +751,10 @@ p{
   text-indent: -1.25em;
   padding-left: 1.25em;
 
+  &:first-child{
+  //  padding-top: 24px;
+  }
+
   span.number{
     font-size: 0.75em;
     // padding-left: 1em;
@@ -926,12 +929,11 @@ p{
 
 
 #services{
+
   h3{
     font-size: 1.3125em; /* 21px */
-  //  line-height: 1.1429em; /* 24px */
     line-height: 1.333em;
     margin-top: 0.000em;
-  //  margin-bottom: 1.1429em;
     margin-bottom: 1.333em;
     font-weight: 700;
 
@@ -957,33 +959,49 @@ p{
     }
 
     &:after{
-        content: " ...";
-        letter-spacing: -3px;
-        //font-family: 'Source Sans Pro', sans-serif;
-        font-weight: 900;
-        color: #0000ff;
-        color: #8b008b;
-        //padding-left: 0.25em;
+      content: " ...";
+      letter-spacing: -3px;
+      //font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 900;
+      color: #0000ff;
+      color: #8b008b;
     }
 
   }
 
   p{
-    // color: rgba(255,255,255,0.75);
     line-height: 1.333em;
 
-    //text-indent: -1.25em;
-    padding-left: 1.25em;
-    padding-right: 1.25em;
+    text-indent: -0.5em;
+    padding-left: 0.5em;
+    //padding-right: 1.25em;
+
+    color: rgba(255,255,255,0.85);
+  // color:#fff;
 
     &.bigger{
       color: rgba(255,255,255,1);
       padding-left:0;
       padding-right: 0;
+      font-weight: 300;
+
+      text-indent: 0;
+      padding-left:0;
+
+      span{
+          text-decoration: none;
+          color: @verde;
+      }
+    }
+
+    span{
+      color: #fff;
+    //font-weight: 400;
+    text-decoration: underline;
+    text-decoration-color: #666;
     }
 
     &.side_txt{
-      // font-size: 1.25em;
       color:#fff;
       text-indent: 0;
       padding-left:0;
@@ -1006,6 +1024,35 @@ p{
   }
 
   h5{
+    // text-indent: -1.25em;
+    // padding-left: 0.25em;
+    color: @grigio;
+    color: #ccc;
+    font-weight: 300;
+
+    border-bottom: 1px solid #333;
+    border-top: 1px solid #333;
+
+    padding-bottom: 0.75em;
+    padding-top: 0.75em;
+
+    margin-bottom: 0.75em;
+
+
+    span{
+      color: #fff;
+      font-weight: 400;
+    }
+
+    &:after{
+        content: " .";
+        font-weight: 700;
+        color: @verde;
+    }
+  }
+
+/*
+  h5{
     text-indent: -1.25em;
     padding-left: 1.25em;
 
@@ -1019,8 +1066,6 @@ p{
 
     color: #fff;
 
-    // color: rgba(255,255,255,0.66);
-
     &:before{
       content: "*";
       color: @grigio;
@@ -1031,15 +1076,12 @@ p{
 
     &:after{
         content: " .";
-
-        //letter-spacing: -3px;
-        //font-family: 'Source Sans Pro', sans-serif;
         font-weight: 400;
         color: @verde;
-
-        //padding-left: 0.25em;
     }
   }
+*/
+
 
   h6{
 
