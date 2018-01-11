@@ -7,6 +7,7 @@ out: css/myStyles4.css, sourcemap: true, compress: true
 // @black: #000a0a;
 @black: rgb(0,16,16);
 @verde: rgb(0,200,0);
+@cyan: #00bfff;
 
 li.language-switch{
     border: none;
@@ -65,6 +66,42 @@ body {
 
 nav{
   margin-top: 1.5em;
+  background-color: #000;
+
+  ul.idiomas{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+
+    li{
+      display: inline;
+      line-height: 2em;
+      color: @grigio;
+
+      margin-left: 0.25em;
+
+      &.hamburger{
+        margin-left: 1em;
+      }
+
+      a{
+        font-family: 'Source Code Pro', monospace;
+
+        // color: @grigio;
+        font-size: 0.85em;
+        font-weight: 400;
+
+        &.active{
+          color: #fff;
+        }
+
+        i{
+          color: @verde;
+        }
+
+      }
+    }
+  }
 
     a{
         // font-family: 'Fira Sans', sans-serif;
@@ -418,9 +455,10 @@ h6{
       content: "////////";
       float: left;
       letter-spacing: -3px;
-      color: @verde;
-      color: rgb(0,240,240);
-      color: #9400d3;
+      //color: @verde;
+      //color: rgb(0,240,240);
+
+      // color: #9400d3;
     }
 
     &:after{
@@ -673,6 +711,12 @@ header{
       }
     }
 
+    &.bigger{
+      color: rgba(255,255,255,1);
+      font-family: 'Source Sans Pro', sans-serif;
+    background-color: transparent;
+    }
+
   }
 
   a{
@@ -689,6 +733,43 @@ header{
   }
 }
 
+
+#home_2{
+  margin-top: 4.5em;
+  //min-height: 100%;
+
+  .sideTxt{
+     background-image: url("../../images/line_24.png");
+  }
+
+p{
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 300;
+  color: rgb(200,200,200);
+  font-size: 0.8em;
+  line-height: 24px;
+
+  text-indent: -1.25em;
+  padding-left: 1.25em;
+
+  span.number{
+    font-size: 0.75em;
+    // padding-left: 1em;
+  //  padding-right: 1em;
+
+    color: rgba(255,255,255,0.4);
+    font-weight: 400;
+    padding-right: 0.75em;
+  }
+
+
+  .rotulador{
+    font-weight: 400;
+  }
+}
+
+}
+
 #contact{
   margin-top: 0;
   padding-bottom: 3em;
@@ -696,7 +777,8 @@ header{
   h6{
     &.bloque{
       &:before{
-        color:#ff8c00;
+        // color:#ff8c00;
+        color: @verde;
       }
     }
   }
@@ -731,15 +813,17 @@ header{
 //   background-color: rgba(0,0,0,0.1);
 
   border-top: 1px solid #333;
-  border-bottom: 1px solid #333;
+  //border-bottom: 1px solid #333;
 
-  border: 1px solid #333;
+  //border: 1px solid #333;
 
   &:hover{
-    background-color: #000;
+    // background-color: #000;
   }
 
 }
+
+
 
 #prj_list{
   h6{
@@ -773,7 +857,7 @@ header{
       font-family: 'Source Sans Pro', sans-serif;
       font-style: italic;
 
-      color: #00bfff;
+      color: @cyan;
 
       &:after{
         content:none;
@@ -787,17 +871,58 @@ header{
     color: @grigio;
 
   }
+
+  .card{
+    background-color: transparent;
+    border-radius: 0;
+    margin-bottom: 3em;
+
+    padding: 0.5em;
+
+
+    h6{
+      margin-bottom: 0;
+      font-weight: 400;
+      font-size: 0.85em;
+      line-height: 1.5em;
+      // font-family: 'Source Sans Pro', sans-serif;
+
+
+
+        &.client{
+          font-weight: 300;
+          // font-size: 1em;
+        }
+    }
+  }
+
+  p.card-text{
+
+      margin-top: 1.5em;
+      color: #fff;
+
+
+
+  }
+
+  .card-body{
+    padding: 0;
+
+  }
+
 }
 
 #projects{
   h6{
     &.bloque{
       &:before{
-        color:#00bfff;
+        color:@cyan;
       }
     }
   }
 }
+
+
 
 
 #services{
@@ -844,15 +969,17 @@ header{
   }
 
   p{
-    color: rgba(255,255,255,0.75);
+    // color: rgba(255,255,255,0.75);
     line-height: 1.333em;
 
     //text-indent: -1.25em;
     padding-left: 1.25em;
+    padding-right: 1.25em;
 
     &.bigger{
       color: rgba(255,255,255,1);
       padding-left:0;
+      padding-right: 0;
     }
 
     &.side_txt{
@@ -871,9 +998,6 @@ header{
       font-family: 'Source Code Pro', monospace;
       padding-right: 2em;
 
-      //padding-top: 1.5em;
-      //padding-bottom: 1.5em;
-
       span.rotulador2{
         color: #ff8c00 !important;
         color: #ff00ff !important;
@@ -881,10 +1005,48 @@ header{
     }
   }
 
+  h5{
+    text-indent: -1.25em;
+    padding-left: 1.25em;
+
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 400;
+    font-size: 0.85em;
+    line-height: 1.5em;
+
+    border-top: 1px dotted #333;
+    padding-top: 1.5em;
+
+    color: #fff;
+
+    // color: rgba(255,255,255,0.66);
+
+    &:before{
+      content: "*";
+      color: @grigio;
+      // color: @verde;
+
+      font-weight: 300;
+    }
+
+    &:after{
+        content: " .";
+
+        //letter-spacing: -3px;
+        //font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 400;
+        color: @verde;
+
+        //padding-left: 0.25em;
+    }
+  }
+
   h6{
+
     &.bloque{
       &:before{
-        color: #9400d3;
+        // color: #9400d3;
+        color: @verde;
       }
     }
   }
@@ -904,8 +1066,6 @@ header{
     //text-align: center;
     color: rgba(255,255,255,1);
 
-
-
     span{
       &.nombre{
         color: rgba(255,255,255,0.66);
@@ -918,6 +1078,7 @@ header{
       &.nrj{
         //font-family: 'Montserrat', sans-serif;
         font-weight: 900;
+        color: @cyan;
       }
     }
   }
@@ -931,7 +1092,7 @@ header{
   h6{
     &.bloque{
       &:before{
-        color:@verde;
+        color:@cyan;
       }
     }
   }
@@ -1112,13 +1273,21 @@ button{
 
   nav{
     a{
+      color: inherit;
+
       &.navbar-brand{
         span{
           &.claim{
             display: inline;
             }
           }
-        }
+      }
+
+      &:hover{
+        color: @grigio;
+      }
+
+
     }
   }
 }
