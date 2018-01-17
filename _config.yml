@@ -27,7 +27,7 @@ defaults:
     values:
       layout: "category"
 claim:
-    en: "Communicaton with algorithms"
+    en: "Communicaton by algorithms"
     es: "Comunicación con algoritmos"
 #menu translation
 t:
