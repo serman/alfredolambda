@@ -5,7 +5,7 @@ permalink:        /:title
 title:            Oblika
 tagline:          Design Data Interfaces
 description:      Making awesome software
-baseurl:  ""
+baseurl:  ''
 languages: ["en", "es"]
 default_lang: "en"
 exclude_from_localization: ["javascript", "images", "css"]
