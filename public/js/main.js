@@ -1,4 +1,5 @@
 n_projects=-1;
+globalScrolled=0;
 window.onload = function() {
     $('#prj_list').on('click',"#showmore",function(event){
         event.preventDefault();
@@ -19,6 +20,8 @@ window.onload = function() {
 emptyData={
     codigo:0, intensidad:0, ocupacion:0, carga:0
 }
+
+
 
 d3.xml("public/data/pm.xml", function(error, data) {
     if (error) throw error;
@@ -48,7 +51,18 @@ $( window ).resize(function() {
 
 });
 
-
+$(window).on("scroll", function(){
+    globalScrolled = amountscrolled()
+})
+function amountscrolled(){
+    var winheight = $(window).height()
+    var docheight = $(document).height()
+    var scrollTop = $(window).scrollTop()
+    var trackLength = docheight - winheight
+    var pctScrolled = scrollTop/trackLength  // gets percentage scrolled (ie: 80 NaN if tracklength == 0)
+    return pctScrolled
+    //console.log(pctScrolled + '% scrolled')
+}
 
 cleanTrafico=[]
 
@@ -114,7 +128,7 @@ function generateMap(){
       })*/
 
 
-     
+
 }
 
 

@@ -1,7 +1,9 @@
-var MAX_SPEED= 2.0
+var MAX_SPEED= 3.0
 var MAX_STEER= 0.3
 var cursorX=0;
 var cursorY=0;
+var targetPositions=[];
+
 status=1;
 document.onmousemove = function(e){
     cursorX = e.pageX-(window.innerWidth/2);
@@ -14,6 +16,9 @@ function startThree() {
     maxGeoY= d3.max(cleanTrafico, function(d){ return d.geo.y})
     minGeoX= d3.min(cleanTrafico, function(d){ return d.geo.x})
     minGeoY= d3.min(cleanTrafico, function(d){ return d.geo.y})
+    targetPositions.push(new THREE.Vector3(-300,-300,-800))
+    targetPositions.push(new THREE.Vector3(-200,-800,-300))
+    targetPositions.push(new THREE.Vector3(-200,-600,-300))
     //ofVec3f& a_target, bool a_slowdown, float a_scale, float a_minDist
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 10000);
@@ -91,10 +96,11 @@ function startThree() {
     });
     pMaterialStations.opacity=0.3
 
+/// MATERIAL INTENSIDAD
     pMaterialIntensity=pMaterialStations.clone()
     pMaterialIntensity.color=new THREE.Color(0xFFFFFF);
     pMaterialIntensity.size=6;
-    pMaterialStations.opacity=0.1
+
 
 // PARTICLE SYSTEMS
     particleCountStations=cleanTrafico.length
@@ -167,7 +173,11 @@ function startThree() {
 
 function animate() {
 
-
+    if(globalScrolled<0.3) status=0
+    else status=1
+    particleSystemIntensity.material.opacity=globalScrolled/2.5
+    //if(status==0) particleSystemIntensity.material.opacity=0
+    //if(status==1) particleSystemIntensity.material.opacity=0.4
 
        for (var i = 0; i < cleanTrafico.length; i++) {
             var particle = particleSystemStations.geometry.vertices[i];
@@ -200,11 +210,14 @@ function animate() {
       particleSystemIntensity.geometry.verticesNeedUpdate=true
       particleSystemStations.geometry.verticesNeedUpdate=true
 
+      camera.position.lerpVectors(targetPositions[0], targetPositions[1], globalScrolled)
+      camera.lookAt(0,0,0)
       //controls.update();
       // draw
       renderer.render(scene, camera);
 
       // set up the next call
       requestAnimationFrame(animate);
+
         //console.log("cc")
     }
