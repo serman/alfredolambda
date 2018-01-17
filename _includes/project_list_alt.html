@@ -1,0 +1,32 @@
+
+<div class="col-sm-4">
+    <div class="card">
+
+      {% if post.image %}
+      <img class="card-img-top" src="{{site.baseurl}}/public/images/proyectos/{{ post.image }}.jpg" />
+      {% endif %}
+
+      {% if post.video %}
+    <!--  <div class="image-prj">-->
+      <video autoplay="autoplay" loop="loop" width="100%" poster="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.jpg">
+      <source src="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.mp4" type="video/mp4" />
+      <!--<img class="card-img-top" src="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.jpg" />-->
+      </video>
+    <!--  </div> -->
+      {% endif %}
+
+
+  <div class="card-body">
+      <h6>{{ post.title }}</h6>
+      <h6 class="client">{{ post.client }}</h6>
+      <p class="card-text">{{ post.description }}</p>
+
+    {% if post.demo-url %}
+        <p><a href="{{ post.demo-url }}" target="_blank"> project website</a></p>
+    {% endif %}
+
+  </div>
+
+</div>
+
+</div>

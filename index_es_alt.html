@@ -2,25 +2,25 @@
 layout: default_alt
 title: Home
 lang: es
+ref: home
 ---
 
-<!--
-<section class="container h-100" id="home">
+<section id="viz_holder">
+  <div class="container" style="position:absolute margin:auto">
 
-    <div class="row spacedBottom">
+    <div class="col-sm-3 offset-sm-9 sideTxt">
 
-        <div class="col-sm-6 offset-sm-1">
-
-<p><span class="number">01.</span>Creamos <span class="rotulador2 rotulador">interfaces</span> avanzadas para navegar la complejidad de un mundo de <span class="rotulador2 rotulador">datos</span>.</p>
-<p><span class="number">02.</span>Imaginamos <span class="rotulador2 rotulador">piezas</span> y <span class="rotulador2 rotulador">espacios</span> que dan la bienvenida y arrancan conversaciones.</p>
-<p><span class="number">03.</span>Generamos <span class="rotulador2 rotulador">diseño</span> visual con <span class="rotulador2 rotulador">algoritmos.</span>
-        </div>
-
+<p><span class="number">></span>Creamos <span class="rotulador2 rotulador">interfaces</span> avanzadas para navegar la complejidad de un mundo de <span class="rotulador2 rotulador">datos</span>.</p>
+<p><span class="number">></span>Imaginamos <span class="rotulador2 rotulador">piezas</span> y <span class="rotulador2 rotulador">espacios</span> que dan la bienvenida y arrancan conversaciones.</p>
+<p><span class="number">></span>Generamos <span class="rotulador2 rotulador">diseño</span> visual con <span class="rotulador2 rotulador">algoritmos.</span>
     </div>
 
-</section>
--->
 
+
+  </div>
+</section>
+
+<!--
 <section class="container h-100" id="home_2">
 
     <div class="row justify-content-center spacedBottom">
@@ -39,6 +39,7 @@ lang: es
     </div>
 
 </section>
+-->
 
 
 
@@ -58,67 +59,25 @@ lang: es
 
 <section class="container" id="prj_list">
 
+<!-- prj list -->
 <div class="prj row">
+  {% assign posts=site.posts | where:"lang", page.lang %}
+  {% for post in posts %} {% if post.extra %} {% else %}
+      {%  include project_list_alt.html content=post  %}
+  {% endif %} {% endfor %}
+</div>
 
-
-    {% for post in site.posts %} {% if post.extra %} {% else %}
-
-<div class="col-sm-4">
-    <div class="card">
-
-      {% if post.image %}
-      <img class="card-img-top" src="{{site.baseurl}}/public/images/proyectos/{{ post.image }}.jpg" />
-      {% endif %}
-
-      {% if post.video %}
-      <div class="image-prj">
-      <video autoplay="autoplay" loop="loop" width="100%" poster="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.jpg">
-      <source src="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.mp4" type="video/mp4" />
-      <img class="card-img-top" src="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.jpg" />
-      </video>
+<!-- extra projects -->
+<div class="prj row">
+  <div id="moreprojects-container" class="collapse">
+      <div id="moreprojects">
+          {% for post in posts %} {% if post.extra %}
+              {%  include project_list_alt.html content=post  %}
+          {% endif %} {% endfor %}
       </div>
-      {% endif %}
-
-
-  <div class="card-body">
-      <h6>{{ post.title }}</h6>
-      <h6 class="client">{{ post.client }}</h6>
-    <p class="card-text">{{ post.description }}</p>
   </div>
-
 </div>
-
-</div>
-
-<!--
-
-    <div class="prj row">
-
-        <div class="col-sm-3 prj_side">
-            <h6>{{ post.title }}</h6>
-            <h6 class="client">{{ post.client }}</h6>
-            <p>{{ post.description }}</p>
-        </div>
-
-        <div class="col-sm-8 offset-sm-1">
-            {% if post.video %}
-            <div class="image-prj">
-                <video autoplay="autoplay" loop="loop" width="100%" poster="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.jpg">
-                          <source src="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.mp4" type="video/mp4" />
-                          <img class="img-fluid" src="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.jpg" />
-                </video>
-            </div>
-            {% endif %} {% if post.image %}
-            <img src="{{site.baseurl}}/public/images/proyectos/{{ post.image }}.jpg" class="img-responsive" /> {% endif %}
-        </div>
-    </div>
--->
-
-    {% endif %} {% endfor %}
-
-
-
-    <!-- extra projects -->
+    <!-- extra projects
 
     <div id="moreprojects-container" class="collapse">
         <div id="moreprojects" class="prj row">
@@ -156,8 +115,8 @@ lang: es
         </div>
     </div>
 
+-->
 
-</div>
     <!-- extra projects -->
 
 
@@ -181,6 +140,110 @@ lang: es
       </div>
   </div>
 
+
+  <div class="row justify-content-center spacedBottom">
+    <div class="col-md-10">
+
+
+      <div class="row spacedBottom">
+
+        <div class="col-md-4 offset-md-1 order-md-12">
+          <h5 class="side"><span>Consultoría</span> de <span>comunicación</span> a traves de <span>datos</span></h5>
+
+          </div>
+
+
+            <div class="col-md-6 bg_line">
+
+              <p>Ayudamos a tu <span>organización</span> a extraer <span>conocimiento</span> de tus <span>datos</span> para facilitar su <span>comprensión</span> y su <span>comunicación</span>  <span class="nrj">.</span></p>
+
+              </div>
+
+
+      </div>
+
+
+      <div class="row spacedBottom">
+
+        <div class="col-md-4 offset-md-1 order-md-12">
+          <h5 class="side"><span>Interfaces</span> a medida para <span>navegar</span> por <span>información</span> compleja</h5>
+
+          </div>
+
+            <div class="col-md-6 bg_line">
+
+              <p>Diseñamos y desarrollamos soluciones a medida para navegar y explorar conjuntos de información compleja e interrelacionada  <span class="nrj">.</span></p>
+
+              </div>
+
+
+
+      </div>
+
+
+      <div class="row spacedBottom">
+
+        <div class="col-md-4 offset-md-1 order-md-12">
+          <h5 class="side"><span>Experiencias<br/>interactivas</span></h5>
+
+          </div>
+
+            <div class="col-md-6 bg_line">
+
+              <p>Ideamos instalaciones inmersivas e interactivas para el descubrimiento, la divulgación y el aprendizaje en Museos y espacios públicos <span class="nrj">.</span></p>
+
+              </div>
+
+
+
+      </div>
+
+
+      <div class="row ">
+
+        <div class="col-md-4 offset-md-1 order-md-12">
+          <h5 class="side"><span>Data-art</span> y visualización de contenidos en <span>tiempo real</span></h5>
+
+          </div>
+
+            <div class="col-md-6 bg_line">
+
+              <p>Creamos contenidos digitales para grandes pantallas y con nuevos medios y tecnologías para contextos y públicos especiales </p>
+              <p>Utilizamos la información y los datos como elementos a partir de los cuales crear animaciones y esculturas de datos  <span class="nrj">.</span></p>
+
+              </div>
+
+
+
+      </div>
+
+<!--
+      <div class="row spacedBottom">
+        <div class="col">
+          <p class="bigger">Adaptamos el <span class="rotulador2">método</span> al tipo proyecto, apoyándonos en el diseño <span class="rotulador2">participativo</span> y con una gran consideración a la experiencia de uso.</p>
+
+          </div>
+        </div>
+-->
+
+
+
+
+
+    </div>
+
+  </div>
+
+  <div class="row justify-content-center spacedBottom">
+    <div class="col-sm-10">
+      <p class="bigger">Adaptamos el <span class="rotulador2">método</span> al tipo proyecto, apoyándonos en el diseño <span class="rotulador2">participativo</span> y con una gran consideración a la experiencia de uso.</p>
+
+      </div>
+    </div>
+
+
+
+<!--
     <div class="row justify-content-center spacedBottom">
 
         <div class="col-md-10">
@@ -219,6 +282,8 @@ lang: es
         </div>
 
     </div>
+-->
+
 </section>
 
 
@@ -274,25 +339,6 @@ lang: es
   </div>
 
 
-<!--
-    <div class="row">
-        <div class="col-sm-3">
-          <a  href="https://www.facebook.com/oblika"><i class="fa fa-facebook-square fa-lg "></i></a>
-          <a  href="https://twitter.com/oblika"><i class="fa fa-twitter fa-lg "></i></a>
-          <a  href="mailto:info@oblika.es"><i class="fa fa-envelope-o fa-lg "></i></a>
-        </div>
-
-        <div class="col-sm-8 offset-md-1">
-            <p><span class="number">01.</span>Estamos en [ <span  class="rotulador2 rotulador">Madrid</span> ];
-            <p><span class="number">02.</span>y trabajamos para clientes de toda Europa.</p>
-            <p><span class="number">03.</span>¿ <span class="rotulador rotulador_magenta">hablamos</span> ?</p>
-            <p><span class="number">04.</span>&nbsp;</p>
-            <p><span class="number">05.</span>mail to: <a href="mailto:info@oblika.es">info@oblika.es</a></p>
-        </div>
-    </div>
--->
-
-
 <div class="row">
   <div class="col" id="globe">
      <canvas width="960" height="360"></canvas>
@@ -301,7 +347,8 @@ lang: es
 
   <div class="row justify-content-center ">
     <div class="col-sm-9 text-center">
-      <p class="bigger">Estamos en <span class="rotulador2">Madrid</span> ... ¿ <em>hablamos</em> ?</p>
+      <p class="bigger">Estamos en <span class="rotulador2">Madrid</span> ... </p>
+      <h5>¿ hablamos ?</h5>
       </div>
     </div>
 
