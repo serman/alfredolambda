@@ -1,12 +1,13 @@
 //out: css/myStyles4.css, sourcemap: true, compress: true
 
-@nrj: rgb(0,200,0);
+@nrj: #ffffff;
 @grigio: #999999;
 @grigio-chiaro: #efefef;
 // @black: #000a0a;
 @black: rgb(0,16,16);
-@verde: rgb(0,200,0);
-@cyan: #00bfff;
+//@verde: rgb(0,200,0);
+@verde: #1693A5;// #3FB8AF;
+@cyan: #1693A5;
 
 li.language-switch{
     border: none;
@@ -66,7 +67,7 @@ body {
 nav{
   margin-top: 1.5em;
   background-color: #000;
-
+a{border-bottom:none}
   ul.idiomas{
     padding: 0;
     margin: 0;
@@ -309,6 +310,7 @@ nav{
 
 a{
   color: @nrj;
+  border-bottom: 1px dotted;
 }
 
 h6, p{
@@ -417,7 +419,7 @@ p.claim{
 
 .rotulador2{
     font-weight: 300;
-    color: @verde;
+    color: @verde!important;
 }
 
 .rotulador_cyan{
@@ -449,11 +451,13 @@ h6{
     font-family: 'Source Code Pro', monospace;
     font-weight: 300;
     color: #fff;
+    font-size:2em;
 
     &:before{
       content: "////////";
       float: left;
       letter-spacing: -3px;
+      font-size:18px;
       //color: @verde;
       //color: rgb(0,240,240);
 
@@ -663,7 +667,9 @@ header{
 
 #home, #contact{
   margin-top: 6em;
-  //min-height: 100%;
+  //
+
+  min-height: 80vh;
 
   padding-bottom: 15em;
 
@@ -675,7 +681,7 @@ header{
     padding-top: 2px;
     padding-bottom: 2px;
   //  background-color: rgb(32,32,32);
-    background-color: rgb(8,32,32);
+    background-color: rgba(0,0,0,0.9);
 
     text-indent: -3em;
     padding-left: 3em;
@@ -806,8 +812,8 @@ p{
 }
 
 .prj{
-  margin-bottom: 1.5em; // 3
-  //background-color: #000;
+  margin-bottom: 5.5em; // 3
+
 
 }
 
@@ -815,7 +821,7 @@ p{
 //   background-color: #000;
 //   background-color: rgba(0,0,0,0.1);
 
-  border-top: 1px solid #333;
+  //border-top: 1px solid #333;
   //border-bottom: 1px solid #333;
 
   //border: 1px solid #333;
@@ -829,6 +835,8 @@ p{
 
 
 #prj_list{
+    background-color: transparent;
+    padding:3em 0;
   h6{
     color: #fff;
     font-weight: 300;
@@ -846,10 +854,8 @@ p{
     &:after{
       //font-family: 'Source Sans Pro', sans-serif;
       content:".";
-      color: #ff00ff;
-      color: #ff4500;
-      color: @verde;
-      color: #0000ff;
+
+     // color: #0000ff;
       font-weight: 900;
       //padding-left: 0.2em;
     }
@@ -948,7 +954,7 @@ p{
     font-family: 'Source Code Pro', monospace;
     font-weight: 300;
     font-size: 1em;
-
+    color:@verde;
     text-indent: -1.25em;
     padding-left: 1.25em;
 
@@ -959,7 +965,7 @@ p{
     }
 
     &:after{
-      content: " ...";
+      content: " ";
       letter-spacing: -3px;
       //font-family: 'Source Sans Pro', sans-serif;
       font-weight: 900;
@@ -976,8 +982,8 @@ p{
     padding-left: 0.5em;
     //padding-right: 1.25em;
 
-    color: rgba(255,255,255,0.85);
-  // color:#fff;
+
+   color:#fff;
 
     &.bigger{
       color: rgba(255,255,255,1);
@@ -1016,10 +1022,7 @@ p{
       font-family: 'Source Code Pro', monospace;
       padding-right: 2em;
 
-      span.rotulador2{
-        color: #ff8c00 !important;
-        color: #ff00ff !important;
-      }
+
     }
   }
 
@@ -1095,6 +1098,7 @@ p{
 }
 
 #team{
+    height:80vh;
   img{
    border: 8px solid #fff;
   }
@@ -1133,6 +1137,7 @@ p{
 
   h6{
     &.bloque{
+
       &:before{
         color:@cyan;
       }

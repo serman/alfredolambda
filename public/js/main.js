@@ -81,14 +81,17 @@ function generateMap(){
     var width=1000, height=1000;
     //merge data
     cleanTrafico=[];
-
+    var count=0;
     trafico.features.forEach(function(d){
         var code=d.properties.cod_cent;
     //    console.log(code)
         if ((code in datos_ayto_code)){
             d.rtdata=datos_ayto_code[code][0];
             if(d.rtdata.intensidad<0) return;
-            cleanTrafico.push(d)
+
+            if(! (count%4==0))
+                cleanTrafico.push(d)
+            count++
         }
         else return;
     })

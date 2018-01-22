@@ -1,5 +1,5 @@
-var MAX_SPEED= 3.0
-var MAX_STEER= 0.3
+var MAX_SPEED= 4.0
+var MAX_STEER= 0.6
 var cursorX=0;
 var cursorY=0;
 var targetPositions=[];
@@ -27,12 +27,23 @@ function startThree() {
     camera.position.y = -1000;
     camera.position.x=-300
     camera.lookAt(0,0,0)
+    width = window.innerWidth;
+				height = window.innerHeight;
     //camera.position.y=170
-    renderer = new THREE.WebGLRenderer();
+    renderer = new THREE.WebGLRenderer({antialias:true });
 
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0x000, 1);
+    renderer.setPixelRatio( window.devicePixelRatio );
     document.body.appendChild(renderer.domElement);
+    var renderModel = new THREE.RenderPass( scene, camera );
+    var effectBloom = new THREE.BloomBlendPass(3,1, new THREE.Vector2(width, height));
+    composer = new THREE.EffectComposer(renderer);
+    effectBloom.renderToScreen = true;
+    composer.setSize( window.innerWidth, window.innerHeight );
+    composer.addPass( renderModel );
+    composer.addPass( effectBloom );
+    renderer.autoClear = false;
 
     /*** add steer to vector 3 ***/
     THREE.Vector3.prototype.velocity=new THREE.Vector3(0,0,0);
@@ -84,7 +95,7 @@ function startThree() {
     //sistema de particulas
     // create the particle variables
     var pMaterialStations = new THREE.PointsMaterial({
-        color: 0x22FF22,
+        color: 0xDDFFDD,
         size: 10,
         map: new THREE.TextureLoader().load(
             "public/images/circle.png"
@@ -92,19 +103,20 @@ function startThree() {
         ),
         blending: THREE.AdditiveBlending,
         transparent: true,
-        depthTest: false
+        depthTest: true
     });
     pMaterialStations.opacity=0.3
 
 /// MATERIAL INTENSIDAD
     pMaterialIntensity=pMaterialStations.clone()
-    pMaterialIntensity.color=new THREE.Color(0xFFFFFF);
+    pMaterialIntensity.color=new THREE.Color(0x44FF44);
     pMaterialIntensity.size=6;
+    pMaterialIntensity.opacity=0.2
 
 
 // PARTICLE SYSTEMS
     particleCountStations=cleanTrafico.length
-    particleCountIntensity=Math.round(d3.sum(cleanTrafico, function(d){ return d.rtdata.intensidad})/100)
+    particleCountIntensity=Math.round(d3.sum(cleanTrafico, function(d){ return d.rtdata.intensidad})/200)
 
     var particlesStationsGeo = new THREE.Geometry();
     for (var p = 0; p < particleCountStations; p++) {
@@ -151,13 +163,13 @@ function startThree() {
 
 
 
-/**********LINES ************/
+/**********LINES CREATION ************/
     var lineMaterial = new THREE.LineBasicMaterial({ color: 0xffffff, transparent:true, linewidth: 1 });
     lineMaterial.blending= THREE.AdditiveBlending
     lineMaterial.opacity=0.05;
     var geometry1 = new THREE.Geometry();
     var i=0, j=0;
-    for (var i = 0; i < cleanTrafico.length; i++)
+    for (var i = 0; i < cleanTrafico.length; i+=4)
     {
         geometry1.vertices.push(particleSystemStations.geometry.vertices[i]);
     }
@@ -182,22 +194,23 @@ function animate() {
        for (var i = 0; i < cleanTrafico.length; i++) {
             var particle = particleSystemStations.geometry.vertices[i];
             p = new THREE.Vector3( (cleanTrafico[i].geo.x-maxGeoX/2) *2, (cleanTrafico[i].geo.y-maxGeoY/2) *2 , 0);
-            particle.steer(p, true, 1, 4)
+            particle.steer(p, true, 1, 5)
             particle.update();
-            line.geometry.vertices[i].set(particle.x, particle.y, particle.z )
+            if(i%4==0)
+                line.geometry.vertices[i/4].set(particle.x, particle.y, particle.z )
        }
         pCount = 0;
        for (var i = 0; i < cleanTrafico.length; i++) {
-           var intensidad = cleanTrafico[i].rtdata.intensidad/100;
+           var intensidad = cleanTrafico[i].rtdata.intensidad/200;
            //if(intensidad==0) intensidad=1;
-           for (var j = 0; j < intensidad; j+=1) {
+           for (var j = 1; j < intensidad; j+=1) {
                var particle = particleSystemIntensity.geometry.vertices[pCount];
                var p;
                if(status==0)
                     p = new THREE.Vector3( (cleanTrafico[i].geo.x-maxGeoX/2) *2, (cleanTrafico[i].geo.y-maxGeoY/2) *2 , 0);
                else
                     p = new THREE.Vector3( (cleanTrafico[i].geo.x-maxGeoX/2) *2, (cleanTrafico[i].geo.y-maxGeoY/2) *2 , -j*4);
-               particle.steer(p, true, 1, 4)
+               particle.steer(p, true, 1, 5)
                particle.update();
                pCount++;
                if(pCount>=particleCountIntensity ) break;
@@ -214,10 +227,16 @@ function animate() {
       camera.lookAt(0,0,0)
       //controls.update();
       // draw
-      renderer.render(scene, camera);
+      //renderer.render(scene, camera);
+      renderer.clear();
+        composer.render( );
 
       // set up the next call
-      requestAnimationFrame(animate);
+      //requestAnimationFrame(animate);
+      var fps=30
+      setTimeout(function() {
+        requestAnimationFrame(animate);
+        }, 1000 / fps);
 
         //console.log("cc")
     }

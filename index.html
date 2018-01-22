@@ -8,7 +8,7 @@ ref: home
 
     <div class="row spacedBottom">
 
-        <div class="col-sm-12">
+        <div class="col-sm-8 offset-sm-4" style="margin-top:40%">
             <!--  <p >comunicación con algoritmos</p>-->
             <!--<p class="claim">comunicación con algoritmos</p>-->
 
@@ -42,6 +42,7 @@ ref: home
     </div>
 </section>
 
+<div id="prj_wrapper" style="background: rgba(0,0,0,0.5)">
 <section class="container" id="prj_list">
     {% assign posts=site.posts | where:"lang", page.lang %}
     {% for post in posts %} {% if post.extra %} {% else %}
@@ -68,14 +69,14 @@ ref: home
     </div>
 
 </section>
-
-
+</div>
 <!-- SERVICES -->
+<div id="container-wrapper" style=" background:rgba(0,0,0,0.6); margin-top: 600px; height: 100vh">
 <section class="container" id="services">
 
   <div class="row spaced tira">
       <div class="col-sm-8 offset-md-4">
-          <h6 class="bloque">servicios</h6>
+          <h6 class="bloque" style="color: black">servicios</h6>
       </div>
   </div>
 
@@ -124,6 +125,7 @@ ref: home
         </div>
     </div>
 </section>
+</div>
 
 
 
