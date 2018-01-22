@@ -33,7 +33,7 @@ function startThree() {
     renderer = new THREE.WebGLRenderer({antialias:true });
 
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0x000, 1);
+    renderer.setClearColor(0x001414, 0.7);
     renderer.setPixelRatio( window.devicePixelRatio );
     document.body.appendChild(renderer.domElement);
     var renderModel = new THREE.RenderPass( scene, camera );
@@ -228,7 +228,7 @@ function animate() {
       //controls.update();
       // draw
       //renderer.render(scene, camera);
-      renderer.clear();
+       renderer.clear();
         composer.render( );
 
       // set up the next call
