@@ -9,29 +9,16 @@ ref: home
     <div class="row spacedBottom">
 
         <div class="col-sm-8 offset-sm-4" style="margin-top:40%">
-            <!--  <p >comunicación con algoritmos</p>-->
-            <!--<p class="claim">comunicación con algoritmos</p>-->
-
-<p><span class="number">01.</span>Creamos <span class="rotulador2 rotulador">interfaces</span> avanzadas para navegar la complejidad de un mundo de <span class="rotulador2 rotulador">datos</span>.</p>
-<p><span class="number">02.</span>Imaginamos <span class="rotulador2 rotulador">piezas</span> y <span class="rotulador2 rotulador">espacios</span> que dan la bienvenida y arrancan conversaciones.</p>
-<p><span class="number">03.</span>Generamos <span class="rotulador2 rotulador">diseño</span> visual con <span class="rotulador2 rotulador">algoritmos.</span>
+            <p><span class="number">01.</span>Creamos <span class="rotulador2 rotulador">interfaces</span> avanzadas para navegar la complejidad de un mundo de <span class="rotulador2 rotulador">datos</span>.</p>
+            <p><span class="number">02.</span>Imaginamos <span class="rotulador2 rotulador">piezas</span> y <span class="rotulador2 rotulador">espacios</span> que dan la bienvenida y arrancan conversaciones.</p>
+            <p><span class="number">03.</span>Generamos <span class="rotulador2 rotulador">diseño</span> visual con <span class="rotulador2 rotulador">algoritmos.</span>
         </div>
-
-<!-- sergio stile's
-        <div class="col-sm-6 ">
-            <p class="" style="margin-top:50%; margin-bottom:50%; font-size: 1.3em; margin-bottom:0; line-height: 1.5em; text-align:right; color:rgba(230,230,230,1);">
-                Creamos <span class="rotulador2">interfaces</span> avanzadas para navegar la complejidad de un mundo de <span class="rotulador2">datos</span>
-                <span class="nrj">·</span>
-            Imaginamos <span class="rotulador2">piezas</span> y <span class="rotulador2">espacios</span> que dan la bienvenida y arrancan conversaciones
-<br/> Generamos <span class="rotulador2">diseño</span> visual con <span class="rotulador2">algoritmos</span>
-            </p>
-        </div>
-         -->
-
     </div>
 
 </section>
 
+
+<div id="prj_wrapper" >
 <section class="container" id="projects">
     <div class="row spacedBottom">
         <div class="col-sm-4">&nbsp;</div>
@@ -41,8 +28,6 @@ ref: home
         </div>
     </div>
 </section>
-
-<div id="prj_wrapper" style="background: rgba(0,0,0,0.5)">
 <section class="container" id="prj_list">
     {% assign posts=site.posts | where:"lang", page.lang %}
     {% for post in posts %} {% if post.extra %} {% else %}
@@ -71,12 +56,12 @@ ref: home
 </section>
 </div>
 <!-- SERVICES -->
-<div id="container-wrapper" style=" background:rgba(0,0,0,0.6); margin-top: 600px; height: 100vh">
+<div id="services-wrapper">
 <section class="container" id="services">
 
   <div class="row spaced tira">
       <div class="col-sm-8 offset-md-4">
-          <h6 class="bloque" style="color: black">servicios</h6>
+          <h6 class="bloque" >servicios</h6>
       </div>
   </div>
 
@@ -131,33 +116,33 @@ ref: home
 
 
 <section class="container" id="team">
-  <div class="row spacedBottom tira">
+  <div class="row spacedTop tira justify-content-center">
 
-      <div class="col-sm-8 offset-md-4">
+      <div class="col-sm-6">
           <h6 class="bloque">equipo</h6>
       </div>
   </div>
 
-    <div class="row spaced">
-          <div class="col-4 ">
+    <div class="row spaced justify-content-center">
+          <div class="col-xs-6 col-sm-3">
               <img src="{{site.baseurl}}/public/images/sergio.jpg" alt="sergio" class="img-responsive rounded-circle">
               <h5><span class="nombre">Sergio</span> Galán <span class="nrj">.</span></h5>
               <p>Diseñador de interacción y programador creativo. Para todo</p>
           </div>
 
-            <div class="col-4">
+            <div class="col-sm-3">
                 <img src="{{site.baseurl}}/public/images/alfredo.jpg" alt="Alfredo" class="img-responsive rounded-circle">
                 <h5><span class="nombre">Alfredo</span> Calosci <span class="nrj">.</span></h5>
                 <p>Diseño, programo, enseño ... para la comunicación</p>
             </div>
-
-            <!--<div class="col-sm-3">
+<!--
+            <div class="col-sm-3">
               <img src="{{site.baseurl}}/public/images/chema.jpg" alt="chema" class="img-responsive rounded-circle">
               <h5><span class="nombre">Chema </span> Blanco <span class="nrj">.</span></h5>
               <p>Resuelve problemas. Gestiona proyectos</p>
-          </div> -->
-
-            <div class="col-4">
+            </div>
+-->
+            <div class="col-sm-3">
                 <img src="{{site.baseurl}}/public/images/guille.jpg" alt="guillermo" class="img-responsive rounded-circle">
                 <h5><span class="nombre">Guillermo</span> Casado <span class="nrj">.</span></h5>
                 <p>Artista de la ciencia. Entre el museo y la calle</p>
