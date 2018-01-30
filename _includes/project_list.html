@@ -1,22 +1,22 @@
 <div class="prj row">
 
-    <div class="col-sm-3 prj_side">
+    <div class="col-sm-3 prj_side align-self-start">
         <h6>{{ post.title }}</h6>
         <h6 class="client">{{ post.client }}</h6>
         <p>{{ post.description }}</p>
         {% if post.demo-url %}
-            <a href="{{ post.demo-url }}" target="_blank"> project website</a>
+            <p> <a href="{{ post.demo-url }}" target="_blank"> project website</a></p>
         {% endif %}
     </div>
 
 
 
-    <div class="col-sm-8 offset-sm-1">
+    <div class="col-sm-8 offset-sm-1 align-self-start">
         {% if post.video %}
         <div class="image-prj">
-            <video autoplay="autoplay" loop="loop" width="100%" poster="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.jpg">
-                      <source src="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.mp4" type="video/mp4" />
-                      <img class="img-fluid" src="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.jpg" />
+            <video class="b-lazy" autoplay="autoplay" loop="loop" width="100%" poster="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.jpg">
+                      <source  data-src="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.mp4" type="video/mp4" />
+                     <!-- <img class="img-fluid" src="{{site.baseurl}}/public/images/proyectos/{{ post.video }}.jpg" />-->
             </video>
         </div>
         {% endif %} {% if post.image %}

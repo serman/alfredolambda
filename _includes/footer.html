@@ -10,7 +10,7 @@
         </div>
 
         <div class="col-sm-4">
-            <p>your data communication agency</p>
+            <p>Advanced Intefaces. Data & Generative Visualization  </p>
         </div>
 
         <div class="col-sm-4 text-right">
@@ -27,6 +27,7 @@
   <script src="{{ site.baseurl }}/public/js/jquery-3.2.1.min.js"></script>
 	<script src="{{ site.baseurl }}/public/js/tether.min.js"></script>
   <script type="text/javascript" src="{{ site.baseurl }}/public/bower_components/popper.js/dist/umd/popper.min.js"></script>
+  <script type="text/javascript" src="{{ site.baseurl }}/public/bower_components/bLazy/bLazy.min.js"></script>
   <script src="{{ site.baseurl }}/public/js/bootstrap.min.js"></script>
  <script src="{{ site.baseurl }}/public/js/lib/three.min.js" >     </script>
  <script type="text/javascript" src="{{ site.baseurl }}/public/js/lib/OrbitControls.js" >     </script>
@@ -43,7 +44,7 @@
 
  <script src="{{ site.baseurl }}/public/js/main.js"></script>
    <!-- slideout -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+   <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>-->
 
    <script>
    // smooth scroll
@@ -57,41 +58,81 @@
 
 
   // hide navbar on scroll down
-  $(function () {
-    var lastScrollTop = 0;
-    var $navbar = $('.navbar');
-
-  $(window).scroll(function(event){
-    var st = $(this).scrollTop();
-
-    if (st > lastScrollTop) { // scroll down
-
-      // use this is jQuery full is used
-      $navbar.fadeOut()
-
-      // use this to use CSS3 animation
-      // $navbar.addClass("fade-out");
-      // $navbar.removeClass("fade-in");
-
-      // use this if no effect is required
-      // $navbar.hide();
-    } else { // scroll up
-
-      // use this is jQuery full is used
-      $navbar.fadeIn()
-
-      // use this to use CSS3 animation
-      // $navbar.addClass("fade-in");
-      // $navbar.removeClass("fade-out");
-
-      // use this if no effect is required
-      // $navbar.show();
-    }
-    lastScrollTop = st;
-  });
-});
+ 
 
 </script>
+
+<script>
+/*var geojson = {}
+
+var context2 = d3.select('#globe canvas')
+  .node()
+  .getContext('2d');
+
+// geoOrthographic
+var projection = d3.geoAzimuthalEqualArea()
+  .scale(220)
+  .center([0, 0])
+  .rotate([0,-56,-10])
+  .translate([480, 180]);
+
+var geoGenerator = d3.geoPath()
+  .projection(projection)
+  .pointRadius(4)
+  .context(context2);
+
+//var yaw = 300;
+var yaw = -10;
+
+function update2() {
+  //projection.rotate([yaw, -90-yaw, -10])
+  projection.rotate([-10, -75, yaw])
+  //projection.rotate([yaw, 0, 0)
+  context2.clearRect(0, 0, 960, 600);
+context2.transparent=true;
+  context2.lineWidth = 0.5;
+  context2.strokeStyle = '#fff';
+  context2.fillStyle = 'rgba(0,20,20,0.8)';
+
+  context2.beginPath();
+  geoGenerator({type: 'FeatureCollection', features: geojson.features})
+  //  context.stroke();
+  context2.fill();
+
+  // Graticule
+  var graticule = d3.geoGraticule();
+  context2.beginPath();
+  context2.lineWidth = 0;
+  context2.strokeStyle = 'rgba(6,6,6,0.6)';
+  geoGenerator(graticule());
+  context2.stroke();
+
+
+  // Circle
+  var circle = d3.geoCircle().center([-3.707398, 40.415363]).radius(1)
+  context2.beginPath();
+  context2.fillStyle = '#00c800';
+  context2.strokeStyle = '#fff';
+  context2.lineWidth = 2.5;
+  geoGenerator(circle());
+  context2.fill();
+  context2.stroke();
+
+  yaw -= 0.1
+  */
+  /*setTimeout(function() {
+    update2();
+}, 40);*/
+//}
+
+// https://gist.githubusercontent.com/d3indepth/f28e1c3a99ea6d84986f35ac8646fac7/raw/c58cede8dab4673c91a3db702d50f7447b373d98/ne_110m_land.json
+// REQUEST DATA
+/*d3.json('world_a.json', function(err, json) {
+  geojson = json;
+  update2();
+})*/
+
+  </script>
 
 </footer>
 <!--/.Footer-->

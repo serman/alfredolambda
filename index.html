@@ -4,187 +4,180 @@ title: Home
 lang: en
 ref: home
 ---
+
 <section class="container h-100" id="home">
 
-    <div class="row spacedBottom">
-
-        <div class="col-sm-8 offset-sm-4" style="margin-top:40%">
-            <p><span class="number">01.</span>Creamos <span class="rotulador2 rotulador">interfaces</span> avanzadas para navegar la complejidad de un mundo de <span class="rotulador2 rotulador">datos</span>.</p>
-            <p><span class="number">02.</span>Imaginamos <span class="rotulador2 rotulador">piezas</span> y <span class="rotulador2 rotulador">espacios</span> que dan la bienvenida y arrancan conversaciones.</p>
-            <p><span class="number">03.</span>Generamos <span class="rotulador2 rotulador">diseño</span> visual con <span class="rotulador2 rotulador">algoritmos.</span>
+    <div class="row spacedBottom" id="home-text-container">
+        <div class="col-sm-8 offset-sm-4" >
+            <div class="divisor1">
+                <p><span class="number">01.</span>Creamos <span class="rotulador2 rotulador">interfaces</span> avanzadas para navegar la complejidad de un mundo de <span class="rotulador2 rotulador">datos</span>.</p>
+            </div>
+            <div class="divisor1">
+                <p><span class="number">02.</span>Imaginamos <span class="rotulador2 rotulador">piezas</span> y <span class="rotulador2 rotulador">espacios</span> que dan la bienvenida y arrancan conversaciones.</p>
+            </div>
+            <div class="divisor1">
+                <p><span class="number">03.</span>Generamos <span class="rotulador2 rotulador">diseño</span> visual con <span class="rotulador2 rotulador">algoritmos.</span>
+            </div>
         </div>
     </div>
 
 </section>
 
 
-<div id="prj_wrapper" >
-<section class="container" id="projects">
-    <div class="row spacedBottom">
-        <div class="col-sm-4">&nbsp;</div>
-        <div class="col-sm-8">
-          <!--  <hr/>-->
-            <h6 class="bloque">proyectos</h6>
+<div id="prj_wrapper">
+    <section class="container" id="projects">
+        <div class="row spacedBottom">
+            <div class="col-sm-4">&nbsp;</div>
+            <div class="col-sm-8">
+                <!--  <hr/>-->
+                <h6 class="bloque">proyectos</h6>
+            </div>
         </div>
-    </div>
-</section>
-<section class="container" id="prj_list">
-    {% assign posts=site.posts | where:"lang", page.lang %}
-    {% for post in posts %} {% if post.extra %} {% else %}
-        {%  include project_list.html content=post  %}
-    {% endif %} {% endfor %}
+    </section>
+    <section class="container" id="prj_list">
+        {% assign posts=site.posts | where:"lang", page.lang %} {% for post in posts %} {% if post.extra %} {% else %} {% include project_list.html content=post %} {% endif %} {% endfor %}
 
-    <!-- extra projects -->
-    <div id="moreprojects-container" class="collapse">
-        <div id="moreprojects">
-            {% for post in posts %} {% if post.extra %}
-                {%  include project_list.html content=post  %}
-            {% endif %} {% endfor %}
+        <!-- extra projects -->
+        <div id="moreprojects-container" class="collapse">
+            <div id="moreprojects">
+                {% for post in posts %} {% if post.extra %} {% include project_list.html content=post %} {% endif %} {% endfor %}
+            </div>
         </div>
-    </div>
 
-    <!-- extra projects -->
+        <!-- extra projects -->
 
-    <div class="prj row">
-        <div class="col-sm-4">&nbsp;</div>
+        <div class="prj row">
+            <div class="col-sm-4">&nbsp;</div>
 
-        <div class="col-sm-8">
-            <button type="button" id="showmore" class="btn btn-outline-secondary btn-sm btn-block">Load more projects ...</button>
+            <div class="col-sm-8">
+                <button type="button" id="showmore" class="btn btn-outline-secondary btn-sm btn-block">Load more projects ...</button>
+            </div>
         </div>
-    </div>
 
-</section>
+    </section>
 </div>
 <!-- SERVICES -->
 <div id="services-wrapper">
-<section class="container" id="services">
+    <section class="container" id="services">
 
-  <div class="row spaced tira">
-      <div class="col-sm-8 offset-md-4">
-          <h6 class="bloque" >servicios</h6>
-      </div>
-  </div>
-
-    <div class="row spacedBottom">
-
-        <div class="col-md-4">
-          <p class="side_txt">Adaptamos el <span class="rotulador2">método</span> al tipo proyecto, apoyándonos en el diseño <span class="rotulador2">participativo</span> y con una gran consideración a la experiencia de uso.</p>
+        <div class="row spaced tira">
+            <div class="col-sm-8 offset-md-4">
+                <h6 class="bloque">servicios</h6>
+            </div>
         </div>
 
+        <div class="row spacedBottom">
 
-        <div class="col-md-8">
-            <div class="spacedBottom row ">
-                <div class="col-md-6 ">
-                    <h3> Consultoría de comunicación a traves de datos</h3>
-                    <p>Ayudamos a tu organización a extraer conocimiento de tus datos para facilitar su comprensión y su comunicación. </p>
-                </div>
-
-                <div class="col-md-6">
-                    <h3> Interfaces a medida para navegar por información compleja</h3>
-                    <p> Diseñamos y desarrollamos soluciones a medida para navegar y explorar conjuntos de información compleja e interrelacionada.</p>
-                </div>
+            <div class="col-md-4 col-sm-10 mr-auto">
+                <p class="side_txt">Adaptamos el <span class="rotulador2">método</span> al tipo proyecto, apoyándonos en el diseño <span class="rotulador2">participativo</span> y con una gran consideración a la experiencia de uso.</p>
             </div>
 
-            <div class="spacedBottom row">
-                <div class="col-md-6">
-                    <h3> Experiencias <br/> interactivas</h3>
-                    <p>Instalaciones inmersivas e interactivas para el descubrimiento, la divulgación y el aprendizaje en Museos y espacios públicos <span class="nrj">.</span></p>
+
+            <div class="col-md-8 col-sm-10">
+                <div class="spacedBottom row ">
+                    <div class="col-sm-6 col-10 mr-auto ">
+                        <h3> Consultoría de comunicación a través de datos</h3>
+                        <p>Ayudamos a tu organización a extraer conocimiento de tus datos para facilitar su comprensión y su comunicación. </p>
+                    </div>
+
+                    <div class="col-sm-6 col-10 mr-auto ">
+                        <h3> Interfaces a medida para navegar por información compleja</h3>
+                        <p> Diseñamos y desarrollamos soluciones a medida para navegar y explorar conjuntos de información compleja e interrelacionada.</p>
+                    </div>
                 </div>
 
-                <div class="col-md-6">
-                    <h3> Data-art y contenidos generativos</h3>
-                    <p>Contenidos digitales en grandes pantallas y con nuevos medios y tecnologías para contextos y públicos especiales
-                        <br/> Utilizamos la información y los datos como elementos a partir de los cuales crear animaciones y esculturas de datos</p>
+                <div class="spacedBottom row">
+                    <div class="col-sm-6 col-10 mr-auto ">
+                        <h3> Experiencias <br/> interactivas</h3>
+                        <p>Instalaciones inmersivas e interactivas para el descubrimiento, la divulgación y el aprendizaje en museos y espacios públicos <span class="nrj">.</span></p>
+                    </div>
+
+                    <div class="col-sm-6 col-10 mr-auto ">
+                        <h3> Data-art y contenidos generativos</h3>
+                        <p>Contenidos digitales en grandes pantallas y con nuevos medios y tecnologías para contextos y públicos especiales
+                            <br/> Utilizamos la información y los datos como elementos a partir de los cuales crear animaciones y esculturas de datos</p>
+                    </div>
+
                 </div>
 
             </div>
-
-<!--
-            <div class="row spacedBottom">
-                <div class="col">
-                    <hr/>
-                    <p class="bigger">Adaptamos el <span class="rotulador2">método</span> al tipo proyecto, apoyándonos en el diseño <span class="rotulador2">participativo</span> y con una gran consideración a la experiencia de uso.</p>
-                </div>
-            </div>
--->
         </div>
-    </div>
-</section>
+    </section>
 </div>
 
 
 
 
-<section class="container" id="team">
-  <div class="row spacedTop tira justify-content-center">
+<section class="container h-100" id="team">
+    <div class="row spacedTop tira justify-content-center">
 
-      <div class="col-sm-6">
-          <h6 class="bloque">equipo</h6>
-      </div>
-  </div>
+        <div class="col-sm-6">
+            <h6 class="bloque">equipo</h6>
+        </div>
+    </div>
 
     <div class="row spaced justify-content-center">
-          <div class="col-xs-6 col-sm-3">
-              <img src="{{site.baseurl}}/public/images/sergio.jpg" alt="sergio" class="img-responsive rounded-circle">
-              <h5><span class="nombre">Sergio</span> Galán <span class="nrj">.</span></h5>
-              <p>Diseñador de interacción y programador creativo. Para todo</p>
-          </div>
+        <div class="col-7 col-sm-3">
+            <img src="{{site.baseurl}}/public/images/sergio.jpg" alt="sergio" class="img-responsive rounded-circle">
+            <h5><span class="nombre">Sergio</span> Galán <span class="nrj">.</span></h5>
+            <p>Diseñador de interacción y programador creativo. Para todo</p>
+        </div>
 
-            <div class="col-sm-3">
-                <img src="{{site.baseurl}}/public/images/alfredo.jpg" alt="Alfredo" class="img-responsive rounded-circle">
-                <h5><span class="nombre">Alfredo</span> Calosci <span class="nrj">.</span></h5>
-                <p>Diseño, programo, enseño ... para la comunicación</p>
-            </div>
-<!--
+        <div class="col-7 col-sm-3">
+            <img src="{{site.baseurl}}/public/images/alfredo.jpg" alt="Alfredo" class="img-responsive rounded-circle">
+            <h5><span class="nombre">Alfredo</span> Calosci <span class="nrj">.</span></h5>
+            <p>Diseño, programo, enseño ... para la comunicación</p>
+        </div>
+        <!--
             <div class="col-sm-3">
               <img src="{{site.baseurl}}/public/images/chema.jpg" alt="chema" class="img-responsive rounded-circle">
               <h5><span class="nombre">Chema </span> Blanco <span class="nrj">.</span></h5>
               <p>Resuelve problemas. Gestiona proyectos</p>
             </div>
 -->
-            <div class="col-sm-3">
-                <img src="{{site.baseurl}}/public/images/guille.jpg" alt="guillermo" class="img-responsive rounded-circle">
-                <h5><span class="nombre">Guillermo</span> Casado <span class="nrj">.</span></h5>
-                <p>Artista de la ciencia. Entre el museo y la calle</p>
-            </div>
+        <div class="col-7 col-sm-3">
+            <img src="{{site.baseurl}}/public/images/guille.jpg" alt="guillermo" class="img-responsive rounded-circle">
+            <h5><span class="nombre">Guillermo</span> Casado <span class="nrj">.</span></h5>
+            <p>Artista de la ciencia. Entre el museo y la calle</p>
+        </div>
     </div>
 </section>
 
 
 
 
-<section class="container" id="contact">
+<section id="contact">
+    <div id="contact-wrapper-inner" >
+        <div class="container">
+            <div class="row spaced tira justify-content-center">
 
-  <div class="row spaced tira">
+                <div class="col-sm-6">
+                    <h6 class="bloque">Contacto</h6>
+                </div>
 
-
-      <div class="col-sm-8 offset-md-4">
-          <h6 class="bloque">Contacto</h6>
-      </div>
-
-  </div>
-
-
-    <div class="row">
-        <div class="col-sm-3">
-          <a  href="https://www.facebook.com/oblika"><i class="fa fa-facebook-square fa-lg "></i></a>
-          <a  href="https://twitter.com/oblika"><i class="fa fa-twitter fa-lg "></i></a>
-          <a  href="mailto:info@oblika.es"><i class="fa fa-envelope-o fa-lg "></i></a>
-        </div>
-
-        <div class="col-sm-8 offset-md-1">
-            <p><span class="number">01.</span>Estamos en [ <span  class="rotulador2 rotulador">Madrid</span> ];
-            <p><span class="number">02.</span>y trabajamos para clientes de toda Europa.</p>
-            <p><span class="number">03.</span>¿ <span class="rotulador rotulador_magenta">hablamos</span> ?</p>
-            <p><span class="number">04.</span>&nbsp;</p>
-            <p><span class="number">05.</span>mail to: <a href="mailto:info@oblika.es">info@oblika.es</a></p>
-
-<!--
-            <p class="rotulador2">¿hablamos?</p>
-            <p>info@oblika.es </p>
-            -->
-        </div>
+            </div>
 
 
-    </div>
+            <!--<div class="row">
+          <div class="col" id="globe">
+             <canvas width="960" height="360"></canvas>
+          </div>
+      </div> -->
+
+            <div class="row justify-content-center ">
+                <div class="col-sm-9 text-center">
+                    <p class="bigger">Estamos en Madrid. Trabajamos para todo el mundo.  </p>
+                    <h5>¿ hablamos ?</h5>
+                </div>
+            </div>
+            <div class="row" style="text-align:center">
+                <div class="col">    <a href="https://www.facebook.com/oblika"><i class="fa fa-facebook-square fa-lg "></i></a></div>
+
+                <div class="col">    <a href="https://twitter.com/oblika"><i class="fa fa-twitter fa-lg "></i></a></div>
+                <div class="col">    <a href="mailto:info@oblika.es"><i class="fa fa-envelope-o fa-lg "></i></a></div>
+                </div>
+
+                </div>
+            </div>
+
 </section>

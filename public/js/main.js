@@ -1,6 +1,40 @@
 n_projects=-1;
 globalScrolled=0;
+globalIsVisible=true;
 window.onload = function() {
+    var bLazy = new Blazy({
+       // Options
+   });
+
+   $(function () {
+     var lastScrollTop = 0;
+     var ARRIBA =1
+     var ABAJO =0;
+     var lastScrollDirection = ABAJO; //1
+     var $navbar = $('.navbar');
+
+//https://code.luasoftware.com/tutorials/bootstrap/bootstrap4-navbar-hide-when-scroll-down/
+   $(window).scroll(function(event){
+       //console.log("scroll")
+     var st = $(this).scrollTop();
+     if (st > lastScrollTop && $(this).scrollTop()>30 ) { // scroll down
+       if(lastScrollDirection==ARRIBA) {
+           $navbar.fadeOut(500)
+           console.log("ABAJO")
+       }
+       lastScrollDirection=ABAJO;
+
+     } else { // scroll up
+       if(lastScrollDirection==ABAJO) {$navbar.fadeIn(500)
+           console.log("ARRIBA")
+       }
+       lastScrollDirection=ARRIBA;
+     }
+
+     lastScrollTop = st;
+   });
+ });
+
     $('#prj_list').on('click',"#showmore",function(event){
         event.preventDefault();
         $("#moreprojects-container").addClass('show');
@@ -16,12 +50,22 @@ window.onload = function() {
     })
 
 
+
+
 /*** bloque d3 datos **/
 emptyData={
     codigo:0, intensidad:0, ocupacion:0, carga:0
 }
 
-
+document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+        globalIsVisible=false;
+    } else {
+        // page has focus, begin running task
+        globalIsVisible=true;
+        requestAnimationFrame(animate);
+    }
+});
 
 d3.xml("public/data/pm.xml", function(error, data) {
     if (error) throw error;
@@ -61,7 +105,6 @@ function amountscrolled(){
     var trackLength = docheight - winheight
     var pctScrolled = scrollTop/trackLength  // gets percentage scrolled (ie: 80 NaN if tracklength == 0)
     return pctScrolled
-    //console.log(pctScrolled + '% scrolled')
 }
 
 cleanTrafico=[]
@@ -109,26 +152,6 @@ function generateMap(){
     //d3.max(clean)
     var color1 = d3.scaleLinear().domain([1, 2000]).range(["green", "red"]);
 
-    /*svg.selectAll(".estaciones")
-        .data( cleanTrafico)
-        .enter()
-        .append("svg:circle")
-        .attr('class',"estaciones")
-        .attr('id',function(d){
-            return "pm_" + d.properties.cod_cent + ".xml"
-        })
-        .attr("r",function(d){
-            return 2;
-        })
-        .attr("cx",width/2).attr("cy",height/2)
-        //.transition().duration(2000)
-        .attr("cx", function(d){return geo1([d.geometry.coordinates[0][0][0],d.geometry.coordinates[0][0][1]]) [0]   })
-        .attr("cy", function(d){return geo1([d.geometry.coordinates[0][0][0],d.geometry.coordinates[0][0][1]]) [1]   })
-        .style("fill", function(d){    return color1(d.rtdata.intensidad)        }) //colorea segun acceso asociado*/
-        /*.style("fill", function(d){ if(d.properties.tipo_elem=="PUNTOS MEDIDA M-30")
-                          return "rgba(255,0,0,0.8)";
-                                      else return "rgba(0,255,0,0.8)";
-      })*/
 
 
 
