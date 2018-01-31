@@ -21,7 +21,7 @@ function startThree() {
     minGeoY= d3.min(cleanTrafico, function(d){ return d.geo.y})
     targetPositions.push(new THREE.Vector3(300,-300,-1000))
     targetPositions.push(new THREE.Vector3(-200,-1000,-300))
-    targetPositions.push(new THREE.Vector3(-200,-600,-300))
+    targetPositions.push(new THREE.Vector3(0,-500,-400))
     //ofVec3f& a_target, bool a_slowdown, float a_scale, float a_minDist
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 10000);
@@ -272,8 +272,10 @@ function animate() {
             particleSystemIntensity.geometry.verticesNeedUpdate=true
         }
         //else console.log("not updating")
-
-      camera.position.lerpVectors(targetPositions[0], targetPositions[1], globalScrolled)
+     if(globalScrolled<0.5)
+      camera.position.lerpVectors(targetPositions[0], targetPositions[1], globalScrolled*2)
+      else
+      camera.position.lerpVectors(targetPositions[1], targetPositions[2], (globalScrolled-0.5)*2)
       camera.lookAt(0,0,0)
       //controls.update();
       // draw

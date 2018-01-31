@@ -22,7 +22,6 @@ window.onload = function() {
      if (st > lastScrollTop && $(this).scrollTop()>30 ) { // scroll down
        if(lastScrollDirection==ARRIBA &&   ( ( Date.now()-milliseconds)>100)) {
            $navbar.fadeOut(500)
-           console.log("ABAJO")
            milliseconds=Date.now()
        }
        lastScrollDirection=ABAJO;
@@ -31,7 +30,6 @@ window.onload = function() {
        if(lastScrollDirection==ABAJO && ( ( Date.now()-milliseconds)>100))
         {
             $navbar.fadeIn(500)
-           console.log("ARRIBA")
             milliseconds=Date.now()
        }
        lastScrollDirection=ARRIBA;
