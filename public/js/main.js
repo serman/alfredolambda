@@ -12,23 +12,30 @@ window.onload = function() {
      var ABAJO =0;
      var lastScrollDirection = ABAJO; //1
      var $navbar = $('.navbar');
-
+      d = new Date();
+      milliseconds = 0;
 //https://code.luasoftware.com/tutorials/bootstrap/bootstrap4-navbar-hide-when-scroll-down/
    $(window).scroll(function(event){
        //console.log("scroll")
+
      var st = $(this).scrollTop();
      if (st > lastScrollTop && $(this).scrollTop()>30 ) { // scroll down
-       if(lastScrollDirection==ARRIBA) {
+       if(lastScrollDirection==ARRIBA &&   ( ( Date.now()-milliseconds)>100)) {
            $navbar.fadeOut(500)
            console.log("ABAJO")
+           milliseconds=Date.now()
        }
        lastScrollDirection=ABAJO;
 
      } else { // scroll up
-       if(lastScrollDirection==ABAJO) {$navbar.fadeIn(500)
+       if(lastScrollDirection==ABAJO && ( ( Date.now()-milliseconds)>100))
+        {
+            $navbar.fadeIn(500)
            console.log("ARRIBA")
+            milliseconds=Date.now()
        }
        lastScrollDirection=ARRIBA;
+
      }
 
      lastScrollTop = st;
@@ -110,9 +117,16 @@ function amountscrolled(){
 cleanTrafico=[]
 
 function getPointsJson(){
-    d3.json("public/data/pmed_trafico.geojson", function(error, trafico1) {
+    d3.json("public/data/pmed_trafico_lite.geojson", function(error, trafico1) {
       if (error) return console.error(error);
       trafico=trafico1;
+       originalTrafico = jQuery.extend(true, {}, trafico1);
+      /** ESTE BLOQUE DE CODIGO LO USO PARA ELIMINAR CAMPOS QUE NO QUERÍA Y REDUCIR TAMANIO DE ARCHIVO
+       for (var j=0; j< originalTrafico.features.length; j++){
+           delete originalTrafico.features[j].properties["nombre"]
+           delete originalTrafico.features[j].properties["tipo_elem"]
+           originalTrafico.features[j].geometry.coordinates[0].splice(2)
+       } **/
       generateMap();
       startThree();
       animate();
@@ -125,6 +139,7 @@ function generateMap(){
     //merge data
     cleanTrafico=[];
     var count=0;
+    console.log("000000")
     trafico.features.forEach(function(d){
         var code=d.properties.cod_cent;
     //    console.log(code)
@@ -138,12 +153,14 @@ function generateMap(){
         }
         else return;
     })
+    console.log("11111")
     //trafico=cleanTrafico
     //geo1=d3.geoTransverseMercator().rotate([11.915,0,0]).fitSize([width-20, height-20]], trafico);
     geo1=d3.geoTransverseMercator().fitSize([width-20, height-20], trafico);
-
+    console.log("222")
     for (var i=0; i<cleanTrafico.length; i++){
         var d= cleanTrafico[i];
+    //    console.log(d)
         d.geo={}
         d.geo.x=geo1([d.geometry.coordinates[0][0][0],d.geometry.coordinates[0][0][1]]) [0] ;
         d.geo.y=geo1([d.geometry.coordinates[0][0][0],d.geometry.coordinates[0][0][1]]) [1] ;

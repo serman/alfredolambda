@@ -19,8 +19,8 @@ function startThree() {
     maxGeoY= d3.max(cleanTrafico, function(d){ return d.geo.y})
     minGeoX= d3.min(cleanTrafico, function(d){ return d.geo.x})
     minGeoY= d3.min(cleanTrafico, function(d){ return d.geo.y})
-    targetPositions.push(new THREE.Vector3(-300,-300,-800))
-    targetPositions.push(new THREE.Vector3(-200,-800,-300))
+    targetPositions.push(new THREE.Vector3(300,-300,-1000))
+    targetPositions.push(new THREE.Vector3(-200,-1000,-300))
     targetPositions.push(new THREE.Vector3(-200,-600,-300))
     //ofVec3f& a_target, bool a_slowdown, float a_scale, float a_minDist
     scene = new THREE.Scene();
@@ -31,12 +31,16 @@ function startThree() {
     camera.position.x=-300
     camera.lookAt(0,0,0)
     width = window.innerWidth;
-				height = window.innerHeight;
+	height = window.innerHeight;
+    if(height< 800) {
+        height=height*1.2 //esto es por que en el iphone al hacer scroll el innerheight se amplia porque desaparece una barra de menu y se veia negro la parte de abjao
+        //console.log("cambio height")
+    }
     //camera.position.y=170
     renderer = new THREE.WebGLRenderer({antialias:false });
     renderer.domElement.id = 'backgroundCanvas';
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(width, height);
     renderer.setClearColor(0x001414, 0.7);
     renderer.setPixelRatio( window.devicePixelRatio );
     document.body.appendChild(renderer.domElement);
@@ -44,7 +48,7 @@ function startThree() {
     var effectBloom = new THREE.BloomBlendPass(3,1, new THREE.Vector2(width, height));
     composer = new THREE.EffectComposer(renderer);
     effectBloom.renderToScreen = true;
-    composer.setSize( window.innerWidth, window.innerHeight );
+    composer.setSize(width, height );
     composer.addPass( renderModel );
     composer.addPass( effectBloom );
     renderer.autoClear = false;
@@ -99,7 +103,7 @@ function startThree() {
 /************** MATERIAL PARTICULAS *******/
     //sistema de particulas
     // create the particle variables
-     _size=20
+     _size=10
     if(window.width<1024) _size=6
     var pMaterialStations = new THREE.PointsMaterial({
         color: 0xDDFFDD,
@@ -131,7 +135,7 @@ function startThree() {
     for (var p = 0; p < particleCountStations; p++) {
         // create a particle with random
         // position values, -250 -> 250
-        var p1 = new THREE.Vector3( (cleanTrafico[p].geo.x-maxGeoX/2) *2, (cleanTrafico[p].geo.y-maxGeoY/2) *2 , 0);
+        var p1 = new THREE.Vector3( (-cleanTrafico[p].geo.x+maxGeoX/2) *2, (-cleanTrafico[p].geo.y+maxGeoY/2) *2 , 0);
         var pX = p1.x+Math.random() * 300 - 150,
             pY = p1.y+Math.random() * 300 - 150,
             pZ = 0,
@@ -162,7 +166,7 @@ function startThree() {
         //if(intensidad==0) intensidad=1;
         for (var j = 1; j < intensidad; j+=1) {
             var p1;
-            p1 = new THREE.Vector3( (cleanTrafico[i].geo.x-maxGeoX/2) *2, (cleanTrafico[i].geo.y-maxGeoY/2) *2 , 0);
+            p1 = new THREE.Vector3( (-cleanTrafico[i].geo.x+maxGeoX/2) *2, (-cleanTrafico[i].geo.y+maxGeoY/2) *2 , 0);
             var pX = p1.x+Math.random() * 400 - 200,
                 pY = p1.y+Math.random() * 400 - 200,
                 pZ = 0
@@ -222,7 +226,7 @@ function animate() {
     if(mustUpdateParticles1==true) { ///OPTIMIZACION PARA PARAR ACTUALIZACION DE PARTICULAS CUANDO ESTAN ESTABLES
        for (var i = 0; i < cleanTrafico.length; i++) {
             var particle = particleSystemStations.geometry.vertices[i];
-            p = new THREE.Vector3( (cleanTrafico[i].geo.x-maxGeoX/2) *2, (cleanTrafico[i].geo.y-maxGeoY/2) *2 , 0);
+            p = new THREE.Vector3( (-cleanTrafico[i].geo.x+maxGeoX/2) *2, (-cleanTrafico[i].geo.y+maxGeoY/2) *2 , 0);
             particle.steer(p, true, 1, 5)
             particle.update();
             if(i%4==0)
@@ -248,9 +252,9 @@ function animate() {
                    var particle = particleSystemIntensity.geometry.vertices[pCount];
                    var p;
                    if(status==0)
-                        p = new THREE.Vector3( (cleanTrafico[i].geo.x-maxGeoX/2) *2, (cleanTrafico[i].geo.y-maxGeoY/2) *2 , 0);
+                        p = new THREE.Vector3( (-cleanTrafico[i].geo.x+maxGeoX/2) *2, (-cleanTrafico[i].geo.y+maxGeoY/2) *2 , 0);
                    else
-                        p = new THREE.Vector3( (cleanTrafico[i].geo.x-maxGeoX/2) *2, (cleanTrafico[i].geo.y-maxGeoY/2) *2 , -j*4);
+                        p = new THREE.Vector3( (-cleanTrafico[i].geo.x+maxGeoX/2) *2, (-cleanTrafico[i].geo.y+maxGeoY/2) *2 , -j*4);
                    particle.steer(p, true, 1, 5)
                    particle.update();
                    pCount++;
