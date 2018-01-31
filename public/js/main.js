@@ -74,20 +74,20 @@ document.addEventListener('visibilitychange', function () {
     }
 });
 
-d3.xml("public/data/pm.xml", function(error, data) {
+d3.xml("public/data/pm_lite.xml", function(error, data) {
     if (error) throw error;
     //consigo un array de PMS
-
+    //<accesoAsociado>\b.*.</accesoAsociado> eliminar contenidos en atom
     data_ayto = [].map.call(data.querySelectorAll("pm"), function(pm) {
         var acceso=""
-        if(pm.querySelector("accesoAsociado")!=null ){
-            acceso=pm.querySelector("accesoAsociado").textContent
-        }
+    //    if(pm.querySelector("accesoAsociado")!=null ){
+    //        acceso=pm.querySelector("accesoAsociado").textContent
+    //    }
         return {
           codigo: pm.querySelector("codigo").textContent,
-          accesoAsociado: acceso,
+    //      accesoAsociado: acceso,
           intensidad: pm.querySelector("intensidad").textContent,
-          ocupacion: pm.querySelector("ocupacion").textContent,
+    //      ocupacion: pm.querySelector("ocupacion").textContent,
           carga: pm.querySelector("carga").textContent,
         };
       });
