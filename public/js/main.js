@@ -1,7 +1,9 @@
 n_projects=-1;
 globalScrolled=0;
 globalIsVisible=true;
+redirectLanguage();
 window.onload = function() {
+
     var bLazy = new Blazy({
        // Options
    });
@@ -40,6 +42,10 @@ window.onload = function() {
    });
  });
 
+$('.language-switch').on('click',function(event){
+    console.log("lang switch")
+    Cookies.set('forceLang', 'yes',{ expires: 7 });
+});
     $('#prj_list').on('click',"#showmore",function(event){
         event.preventDefault();
         $("#moreprojects-container").addClass('show');
@@ -137,7 +143,7 @@ function generateMap(){
     //merge data
     cleanTrafico=[];
     var count=0;
-    console.log("000000")
+
     trafico.features.forEach(function(d){
         var code=d.properties.cod_cent;
     //    console.log(code)
@@ -151,11 +157,10 @@ function generateMap(){
         }
         else return;
     })
-    console.log("11111")
+
     //trafico=cleanTrafico
     //geo1=d3.geoTransverseMercator().rotate([11.915,0,0]).fitSize([width-20, height-20]], trafico);
     geo1=d3.geoTransverseMercator().fitSize([width-20, height-20], trafico);
-    console.log("222")
     for (var i=0; i<cleanTrafico.length; i++){
         var d= cleanTrafico[i];
     //    console.log(d)
@@ -168,8 +173,6 @@ function generateMap(){
     var color1 = d3.scaleLinear().domain([1, 2000]).range(["green", "red"]);
 
 
-
-
 }
 
 
@@ -177,43 +180,50 @@ function generateMap(){
 Browser Language Redirect script- By JavaScript Kit
 For this and over 400+ free scripts, visit http://www.javascriptkit.com
 This notice must stay intact
-
+*/
 function getURLParameter(name) {
     return decodeURI(
         (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
     );
 }
 
-lang=getURLParameter('lang')
-if (lang!='es'){
-      //Enter ISO 639-2 letter Language codes to detect (see: http://www.w3.org/WAI/ER/IG/ert/iso639.htm):
-      var langcodes=new Array("en", "es", "default")
+function redirectLanguage(){
+    if(Cookies.get('forceLang')=="yes" ) return; // si ha seleccionado a mano
+    lang="en"
+    if(window.location.pathname=="/") lang="en"
+    else if(window.location.pathname=="/index_es.html") lang="es"
+    else if(window.location.pathname=="/index_es") lang="es"
+    //lang=getURLParameter('lang')
+    if (lang!='es'){
+          //Enter ISO 639-2 letter Language codes to detect (see: http://www.w3.org/WAI/ER/IG/ert/iso639.htm):
+          var langcodes=new Array( "es","en", "default")
 
-      //Enter corresponding redirect URLs (last one is for default URL):
-      var langredirects=new Array("index.html", "index_es.html", "index.html")
+          //Enter corresponding redirect URLs (last one is for default URL):
+          var langredirects=new Array( "index_es.html", "index.html","index.html")
 
-      var languageinfo=navigator.language? navigator.language : navigator.userLanguage
-      var gotodefault=1
+          var languageinfo=navigator.language? navigator.language : navigator.userLanguage
+          var gotodefault=1
 
-      function redirectpage(dest){
-      if (window.location.replace)
-        window.location.replace(dest)
-      else
-        window.location=dest
-      }
-
-      for (i=0;i<langcodes.length-1;i++){
-        if (languageinfo.substr(0,2)==langcodes[i]){
-          if(langcodes[i]=="es"){gotodefault=0}
-          else{
-          redirectpage(langredirects[i])
-          gotodefault=0
-          break
+          function redirectpage(dest){
+          if (window.location.replace)
+            window.location.replace(dest)
+          else
+            window.location=dest
           }
-        }
-      }
 
-      if (gotodefault)
-        redirectpage(langredirects[langcodes.length-1])
+          for (i=0;i<langcodes.length-1;i++){
+            if (languageinfo.substr(0,2)==langcodes[i]){
+              if(langcodes[i]=="en"){
+                  gotodefault=0
+              }
+              else{
+                  redirectpage(langredirects[i])
+                  gotodefault=0
+                  break
+              }
+            }
+          }
+          if (gotodefault)
+            redirectpage(langredirects[langcodes.length-1])
+    }
 }
-*/
