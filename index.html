@@ -13,7 +13,7 @@ ref: home
 
             </div>
             <div class="divisor1">
-                <p><span class="number">02.</span>We imagine <span class="rotulador2 rotulador">artworks</span> and <span class="rotulador2 rotulador">spaces</span> which wellcome visitors and start conversations.</p>
+                <p><span class="number">02.</span>We imagine <span class="rotulador2 rotulador">artworks</span> and <span class="rotulador2 rotulador">spaces</span> which welcome visitors and motivate conversation.</p>
             </div>
             <div class="divisor1">
                 <p><span class="number">03.</span>We generate visual <span class="rotulador2 rotulador">design</span> with <span class="rotulador2 rotulador">algorithms</span>
@@ -40,7 +40,7 @@ ref: home
         <!-- extra projects -->
         <div id="moreprojects-container" class="collapse">
             <div id="moreprojects">
-                {% for post in posts %} {% if post.extra %} {% include project_list.html content=post %} {% endif %} {% endfor %}
+                {% assign posts=site.posts | where:"lang", page.lang %} {% for post in posts %} {% if post.extra %} {% include project_list.html content=post %} {% endif %} {% endfor %}
             </div>
         </div>
 
@@ -69,7 +69,7 @@ ref: home
         <div class="row spacedBottom">
 
             <div class="col-md-4 col-sm-10 mr-auto">
-                <p class="side_txt">We adapt the <span class="rotulador2">methodology</span> to each project, building upon <span class="rotulador2">participative</span> design and with great care to user experience.</p>
+                <p class="side_txt">We adapt  <span class="rotulador2">methodology</span> in each project, building upon <span class="rotulador2">participative</span>design and a special concern for user experience.</p>
             </div>
 
 
@@ -81,7 +81,7 @@ ref: home
                     </div>
 
                     <div class="col-sm-6 col-10 mr-auto ">
-                        <h3> Custom made interfaces to browse through complex information</h3>
+                        <h3> Customized interfaces to browse through complex information</h3>
                         <p> Design and develop custom solution to browse and explore complex datasets of connected information.</p>
                     </div>
                 </div>
@@ -89,13 +89,14 @@ ref: home
                 <div class="spacedBottom row">
                     <div class="col-sm-6 col-10 mr-auto ">
                         <h3> Interactive <br/> Experiences</h3>
-                        <p> Immersive and interactive installation for discovery, dissemination and learning in museums and public spaces <span class="nrj">.</span></p>
+                        <p> Immersive and interactive installations for discovery, dissemination and learning in museums and public spaces <span class="nrj">.</span></p>
                     </div>
 
                     <div class="col-sm-6 col-10 mr-auto ">
                         <h3> Data-art and generative contents </h3>
-                        <p> Digital content in big screensand with new media and technology for special context and audiences.
-                            <br/> We use information and data as a building blocks to create animation and </p>
+                        <p> Digital content in big screens adapted to special contexts and audiences, using new media and cutting-edge technology.
+
+                            <br/>We use information and data as  building blocks to create and animate interactive digital data sculptures. </p>
                     </div>
 
                 </div>
