@@ -1,0 +1,105 @@
+<!-- geo globe -->
+<script>
+var geojson = {}
+
+var context = d3.select('#globe canvas')
+  .node()
+  .getContext('2d');
+
+// geoOrthographic
+var projection = d3.geoAzimuthalEqualArea()
+  .scale(220)
+  .center([0, 0])
+  .rotate([0,-56,-10])
+  .translate([480, 180]);
+
+var geoGenerator = d3.geoPath()
+  .projection(projection)
+  .pointRadius(4)
+  .context(context);
+
+//var yaw = 300;
+var yaw = -10;
+
+function update() {
+  //projection.rotate([yaw, -90-yaw, -10])
+  projection.rotate([-10, -75, yaw])
+  //projection.rotate([yaw, 0, 0)
+  context.clearRect(0, 0, 960, 600);
+
+  context.lineWidth = 0.5;
+  context.strokeStyle = '#fff';
+  context.fillStyle = '#999999';
+
+  context.beginPath();
+  geoGenerator({type: 'FeatureCollection', features: geojson.features})
+  //  context.stroke();
+  context.fill();
+
+  // Graticule
+  var graticule = d3.geoGraticule();
+  context.beginPath();
+  context.strokeStyle = '#ccc';
+  geoGenerator(graticule());
+  context.stroke();
+
+
+  // Circle
+  var circle = d3.geoCircle().center([-3.707398, 40.415363]).radius(1)
+  context.beginPath();
+  context.fillStyle = '#00c800';
+  context.strokeStyle = '#fff';
+  context.lineWidth = 2.5;
+  geoGenerator(circle());
+  context.fill();
+  context.stroke();
+
+  yaw -= 0.1
+}
+
+// https://gist.githubusercontent.com/d3indepth/f28e1c3a99ea6d84986f35ac8646fac7/raw/c58cede8dab4673c91a3db702d50f7447b373d98/ne_110m_land.json
+// REQUEST DATA
+d3.json('world_a.json', function(err, json) {
+  geojson = json;
+  window.setInterval(update, 100);
+})
+
+  </script>
+
+
+<script>
+$( document ).ready(function() {
+
+  // prj img
+  $(".card-img-top").each(function() {
+      /* variables */
+      var this_img   = $(this);
+      var baseline   = 24;
+      var img_height = this_img.height();
+         
+      /* do the maths */
+      var remainder  = parseFloat(Math.floor(img_height%baseline));
+         
+      /* how much do we need to add? */
+      var offset     = parseFloat(baseline-remainder);
+         
+      /* apply the margin to the image */
+      this_img.css("margin-bottom",offset+"px");
+  });
+
+
+    $("video").on("loadeddata", function (e) {
+    //  console.log("Video paused. Current time of videoplay: " + e.target.currentTime );
+    //  var this_video   = $(this);
+      var baseline   = 24;
+      var video_height = e.target.clientHeight;
+      var remainder  = parseFloat(Math.floor(video_height%baseline));
+      var offset     = parseFloat(baseline-remainder);
+    //  console.log(offset);
+
+      $(this).css("margin-bottom",offset+"px");
+
+    });
+
+});
+</script>
