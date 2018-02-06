@@ -8,6 +8,8 @@ var mustUpdateParticles2=true;
 status=1;
 var steerCounter=0;
 var clock;
+var bgColor,cBlanco,cNegro;
+var bpoint1, bpoint2
 /*document.onmousemove = function(e){
     cursorX = e.pageX-(window.innerWidth/2);
     cursorY = e.pageY-$('#backgroundCanvas').position().top- (window.innerHeight/2);
@@ -15,6 +17,25 @@ var clock;
 }*/
 
 function startThree() {
+    var totalh= $('body').height()
+    var prjh=$('#prj_wrapper').position().top
+    var teamh=$('#team').position().top
+    var teamsizeh=$('#team').height()/totalh
+    bpoint1=prjh/totalh
+    bpoint2=teamh/totalh
+
+    //d3 function scales
+    scale1 = d3.scaleLinear()
+    .domain([bpoint1/2, bpoint1])
+    .range([0, 1]).clamp(true);
+
+    scale2 = d3.scaleLinear()
+    .domain([bpoint2, bpoint2+teamsizeh-0.01])
+    .range([1, 0]).clamp(true)
+
+    bgColor= new THREE.Color(0x001414);
+    cBlanco= new THREE.Color(0xffffff);
+    cNegro= new THREE.Color(0x001414);
     maxGeoX= d3.max(cleanTrafico, function(d){ return d.geo.x})
     maxGeoY= d3.max(cleanTrafico, function(d){ return d.geo.y})
     minGeoX= d3.min(cleanTrafico, function(d){ return d.geo.x})
@@ -45,7 +66,7 @@ function startThree() {
     renderer.setPixelRatio( window.devicePixelRatio );
     document.body.appendChild(renderer.domElement);
     var renderModel = new THREE.RenderPass( scene, camera );
-    var effectBloom = new THREE.BloomBlendPass(3,1, new THREE.Vector2(width, height));
+     effectBloom = new THREE.BloomBlendPass(3,1, new THREE.Vector2(width, height));
     composer = new THREE.EffectComposer(renderer);
     effectBloom.renderToScreen = true;
     composer.setSize(width, height );
@@ -105,13 +126,13 @@ function startThree() {
     // create the particle variables
      _size=10
     if(window.width<1024) _size=6
-    var pMaterialStations = new THREE.PointsMaterial({
-        color: 0xDDFFDD,
+    pMaterialStations = new THREE.PointsMaterial({
+        color:0xDDFFDD, //0x1693A5,
         size: _size,
         map: new THREE.TextureLoader().load(
-            "public/images/circle2.png"
+            "public/images/circle3.png"
         ),
-        blending: THREE.AdditiveBlending,
+        blending: THREE.NormalBlending,
         transparent: true,
         depthTest: false,
 
@@ -124,7 +145,7 @@ function startThree() {
     pMaterialIntensity=pMaterialStations.clone()
     pMaterialIntensity.color=new THREE.Color(0x44FF44);
     pMaterialIntensity.size=_size;
-    pMaterialIntensity.opacity=0.4
+    pMaterialIntensity.opacity=0.3
 
 
 // PARTICLE SYSTEMS
@@ -195,8 +216,8 @@ function startThree() {
 
 
 /**********LINES CREATION ************/
-    var lineMaterial = new THREE.LineBasicMaterial({ color: 0xffffff, transparent:true, linewidth: 1 });
-    lineMaterial.blending= THREE.AdditiveBlending
+    var lineMaterial = new THREE.LineBasicMaterial({ color: 0xffffff, transparent:true, linewidth: 1 }); //0x167065
+    lineMaterial.blending= THREE.NormalBlending
     lineMaterial.opacity=0.05;
     var geometry1 = new THREE.Geometry();
     var i=0, j=0;
@@ -221,6 +242,7 @@ function animate() {
     if(globalScrolled<0.3) status=0
     else status=1
 
+    updateColors();
 
     particleSystemIntensity.material.opacity=globalScrolled/2.5
     if(mustUpdateParticles1==true) { ///OPTIMIZACION PARA PARAR ACTUALIZACION DE PARTICULAS CUANDO ESTAN ESTABLES
@@ -279,8 +301,9 @@ function animate() {
       camera.lookAt(0,0,0)
       //controls.update();
       // draw
-      //renderer.render(scene, camera);
       renderer.clear();
+      //renderer.render(scene, camera);
+
       composer.render( );
 
       // set up the next call
@@ -293,3 +316,41 @@ function animate() {
     }
         //console.log("cc")
     }
+
+    function updateColors(){
+
+        //bgColor.set()
+        //bgColor.lerp(cBlanco,globalScrolled)
+
+        if(globalScrolled>(bpoint2) ){
+                carray= interpolateColor([cNegro.r*255,cNegro.g*255,cNegro.b*255], [cBlanco.r*255,cBlanco.g*255,cBlanco.b*255],scale2(globalScrolled))
+            }
+        else {
+            carray= interpolateColor( [cNegro.r*255,cNegro.g*255,cNegro.b*255], [cBlanco.r*255,cBlanco.g*255,cBlanco.b*255], scale1(globalScrolled))
+        }
+        effectBloom.opacity = (1-(carray[0]/256) );
+        bgColor.setRGB(carray[0]/255,carray[1]/255,carray[2]/255)
+        renderer.setClearColor(bgColor, 0.7+0.3*carray[0]);
+
+        if(globalScrolled>0.2){
+
+            //particleSystemIntensity.material.color=new THREE.Color(0x004400);
+            //particleSystemStations.material.color=new THREE.Color(0x1693A5);
+        }
+        else{
+            //renderer.setClearColor(0xffffff, 1);
+        }
+        //bgColor.set(lerp1(bgColor.getHex(),0xffffff,globalScrolled));
+    }
+
+    function interpolateColor(color1, color2, factor) {
+        if (arguments.length < 3) {
+            factor = 0.5;
+        }
+
+        var result = color1.slice();
+        for (var i = 0; i < 3; i++) {
+            result[i] = Math.round(result[i] + factor * (color2[i] - color1[i]));
+        }
+        return result;
+    };

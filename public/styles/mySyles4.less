@@ -1,11 +1,11 @@
 //out: css/myStyles4.css, sourcemap: true, compress: true
 @nrj: #ffffff;
-@grigio: #999999;
+@grigio: #555;
 @grigio-chiaro: #efefef; // @black: #000a0a;
 @black: rgb(0,16,16); //@verde: rgb(0,200,0);
 @verde: #1693A5; // #3FB8AF;
 @cyan: #1693A5;
-
+@colorTexto: #222;
 li.language-switch {
     border: none;
     margin-left: 1em;
@@ -42,7 +42,7 @@ body {
     background: #000;
     //background: rgb(0, 10, 10);
 
-    color: #fff;
+    color: @colorTexto;
     -webkit-font-smoothing: subpixel-antialiased;
 }
 
@@ -114,7 +114,7 @@ nav {
         li {
             display: inline;
             line-height: 2em;
-            color: @grigio;
+            color: @grigio-chiaro;
             margin-left: 0.25em;
 
             &.hamburger {
@@ -127,7 +127,7 @@ nav {
                 font-weight: 400;
 
                 &.active {
-                    color: #fff;
+                    color: @colorTexto;
                 }
 
                 i {
@@ -149,7 +149,7 @@ nav {
             span {
                 &.parentesi {
                     font-weight: 300;
-                    color: @grigio;
+                    color: @grigio-chiaro;
                 }
 
                 &.pipe {
@@ -157,7 +157,7 @@ nav {
                 }
 
                 &.claim {
-                    color: @grigio;
+                    color: @grigio-chiaro;
                     font-size: 0.75em;
                     font-weight: 400;
                     padding-right: 0.5em;
@@ -197,7 +197,7 @@ nav {
                 font-size: 0.85em;
                 font-weight: 400;
                 color: rgba(255,255,255,0.75);
-                color: @grigio !important;
+                color: @grigio-chiaro !important;
 
                 &.nav-link {
                     padding-left: 0.75em;
@@ -212,7 +212,7 @@ nav {
                 }
 
                 &:hover {
-                    color: #fff !important;
+                    color: @colorTexto !important;
                 }
             }
 
@@ -258,7 +258,7 @@ p.big {
     /* 24px */
     margin-top: 0.0000em;
     margin-bottom: 1.2000em;
-    color: #000;
+    color: @colorTexto;
 }
 
 h6 {
@@ -277,7 +277,7 @@ h6 {
         text-align: right;
         font-family: 'Source Code Pro', monospace;
         font-weight: 300;
-        color: #fff;
+        color: @colorTexto;
         font-size: 2em;
         &:before {
             content: "////////";
@@ -342,7 +342,7 @@ h6 {
 
         a {
             font-weight: 400;
-            color: #fff;
+            color: @colorTexto;
 
             &:hover {
                 text-decoration: none;
@@ -365,21 +365,25 @@ h6 {
 
         &:hover {
             i {
-                color: #fff;
+                color: @colorTexto;
             }
         }
     }
 }
 
 #contact {
-    margin-top: 0;
+    color:#fff;
+    margin-top: 20vh;
     padding-bottom: 3em;
+    min-height: 60vh;
+
     .bigger{
         font-size:1.2em;
         line-height: 1.2em;
     }
     h6 {
         &.bloque {
+            color:#fff;
             &:before {
                 // color:#ff8c00;
                 color: @verde;
@@ -395,7 +399,7 @@ h6 {
     }
     a i{
         font-size:2em;
-        color:#ddd;
+        color:#fff;
     }
 }
 
@@ -427,7 +431,7 @@ h6 {
     }
 }
 #prj_wrapper {
-    background: rgba(0,20,20,0.5)
+    /*background: rgba(0,20,20,0.5)*/
 }
 .prj {
     margin-bottom: 5.5em; // 3
@@ -438,7 +442,7 @@ h6 {
     padding-top: 3em;
 
     h6 {
-        color: #fff;
+        color: @colorTexto;
         font-weight: 300;
         font-family: 'Source Code Pro', monospace;
         margin-bottom: 0.75em;
@@ -496,7 +500,7 @@ h6 {
 
     p.card-text {
         margin-top: 1.5em;
-        color: #fff;
+        color: @colorTexto;
     }
 
     .card-body {
@@ -507,7 +511,7 @@ h6 {
 
 
 #services-wrapper{
-    background:rgba(0,20,20,0.6);
+    /*background:rgba(255,255,255,0.8);*/
     min-height: 100vh
 }
 #services {
@@ -554,7 +558,7 @@ h6 {
         text-indent: -0.5em;
         padding-left: 0.5em;
         //padding-right: 1.25em;
-        color: #fff;
+        color: #222;
 
         &.bigger {
             color: rgba(255,255,255,1);
@@ -571,14 +575,14 @@ h6 {
         }
 
         span {
-            color: #fff;
+            color: @colorTexto;
             //font-weight: 400;
             text-decoration: underline;
             text-decoration-color: #666;
         }
 
         &.side_txt {
-            color: #fff;
+            color: @colorTexto;
             text-indent: 0;
             padding-left: 0;
             // border-top: 1px solid #333;
@@ -604,7 +608,7 @@ h6 {
         margin-bottom: 0.75em;
 
         span {
-            color: #fff;
+            color: @colorTexto;
             font-weight: 400;
         }
 
@@ -644,7 +648,6 @@ h6 {
         font-family: 'Source Sans Pro', sans-serif;
         color: #fff;
         //text-align: center;
-        color: rgba(255,255,255,1);
 
         span {
             &.nombre {
@@ -665,12 +668,13 @@ h6 {
 
     p {
         font-size: 0.9em;
-        color: rgba(255,255,255,1);
+        color: #fff;
         line-height: 1.333em;
         /* 24px */
     }
 
     h6 {
+        color:#fff;
         &.bloque {
             &:before {
                 color: @cyan;
@@ -682,17 +686,18 @@ h6 {
 footer {
     font-family: 'Source Code Pro', monospace;
     /*margin-top: 3em;*/
-    background-color: rgba(0,0,0,0.5);
-    border-top: 1px solid rgba(255,255,255,0.25);
+    background-color: rgba(0,0,0,0.7);
+    border-top: 1px solid rgba(0,0,0,0.25);
     padding-top: 3em;
     padding-bottom: 3em;
+    color:#eee;
     p {
         font-size: 0.7500em;
         line-height: 2.0000em;
         color: @grigio;
     }
     a {
-        color: #fff;
+        color:#eee;
         font-weight: 400;
         &:hover {
             color: @verde;
@@ -702,11 +707,12 @@ footer {
 }
 
 #artwork-explanation {
+    color:#eee;
     margin-top: 3em;
     padding-top: 3em;
     font-weight: normal;
     font-size:13px;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.7);
 }
 
 .spaced {
