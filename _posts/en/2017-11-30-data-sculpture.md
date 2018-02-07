@@ -1,6 +1,6 @@
 ---
 title: Data Sculpture
-date: 2017-07-31T12:31:53+00:00
+date: 2017-07-31T12:31:49+00:00
 layout: post
 video: escultura
 client: privado

@@ -1,6 +1,6 @@
 ---
 title: AMICa Advanced Mapping of Industrial Capabilities for Climate
-date: 2017-1-5T14:00:00+00:00
+date: 2017-07-31T12:31:52+00:00
 layout: post
 image: amicasankey
 client: DTU Technical University of Denmark

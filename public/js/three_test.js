@@ -9,6 +9,10 @@ status=1;
 var steerCounter=0;
 var clock;
 var bgColor,cBlanco,cNegro;
+var linesColorBgNegro, linesColorBgBlanco, particlesColorBgNegro, particlesColorBgBlanco;
+
+
+
 var bpoint1, bpoint2
 /*document.onmousemove = function(e){
     cursorX = e.pageX-(window.innerWidth/2);
@@ -33,9 +37,20 @@ function startThree() {
     .domain([bpoint2, bpoint2+teamsizeh-0.01])
     .range([1, 0]).clamp(true)
 
+    scaleColorParticlesIntensity = d3.scaleLinear()
+    .domain([bpoint2, bpoint2+teamsizeh-0.01])
+    .range([0, 1]).clamp(true)
+
     bgColor= new THREE.Color(0x001414);
     cBlanco= new THREE.Color(0xffffff);
     cNegro= new THREE.Color(0x001414);
+    linesColorBgBlanco = new THREE.Color(0x1693A5);
+    linesColorBgNegro = new THREE.Color(0xffffff);
+    particlesColorBgBlanco = new THREE.Color(0x444444);
+    particlesColorBgNegro = new THREE.Color(0x44FF44);
+    nodeParticlesColorBgBlanco = new THREE.Color(0x1693A5);
+    nodeParticlesColorBgNegro = new THREE.Color(0xDDFFDD);
+
     maxGeoX= d3.max(cleanTrafico, function(d){ return d.geo.x})
     maxGeoY= d3.max(cleanTrafico, function(d){ return d.geo.y})
     minGeoX= d3.min(cleanTrafico, function(d){ return d.geo.x})
@@ -66,7 +81,7 @@ function startThree() {
     renderer.setPixelRatio( window.devicePixelRatio );
     document.body.appendChild(renderer.domElement);
     var renderModel = new THREE.RenderPass( scene, camera );
-     effectBloom = new THREE.BloomBlendPass(3,1, new THREE.Vector2(width, height));
+     effectBloom = new THREE.BloomBlendPass(4,1, new THREE.Vector2(width, height));
     composer = new THREE.EffectComposer(renderer);
     effectBloom.renderToScreen = true;
     composer.setSize(width, height );
@@ -121,16 +136,16 @@ function startThree() {
        this.acceleration.z=0;
     }
 
-/************** MATERIAL PARTICULAS *******/
+/************** MATERIAL PARTICULAS *******************************************************************/
     //sistema de particulas
     // create the particle variables
-     _size=10
+     _size=8
     if(window.width<1024) _size=6
     pMaterialStations = new THREE.PointsMaterial({
-        color:0xDDFFDD, //0x1693A5,
+        color:0xDDFFDD,
         size: _size,
         map: new THREE.TextureLoader().load(
-            "public/images/circle3.png"
+            "public/images/circle4.png"
         ),
         blending: THREE.NormalBlending,
         transparent: true,
@@ -138,14 +153,14 @@ function startThree() {
 
     });
     pMaterialStations.opacity=0.4
-    _size=6;
+    _size=5;
 
-    if(window.width<1024) _size=4
+    if(window.width<1024) _size=3
 /// MATERIAL INTENSIDAD
     pMaterialIntensity=pMaterialStations.clone()
     pMaterialIntensity.color=new THREE.Color(0x44FF44);
     pMaterialIntensity.size=_size;
-    pMaterialIntensity.opacity=0.3
+    pMaterialIntensity.opacity=0.4
 
 
 // PARTICLE SYSTEMS
@@ -216,7 +231,7 @@ function startThree() {
 
 
 /**********LINES CREATION ************/
-    var lineMaterial = new THREE.LineBasicMaterial({ color: 0xffffff, transparent:true, linewidth: 1 }); //0x167065
+    lineMaterial = new THREE.LineBasicMaterial({ color: 0xffffff, transparent:true, linewidth: 1 }); //0x167065
     lineMaterial.blending= THREE.NormalBlending
     lineMaterial.opacity=0.05;
     var geometry1 = new THREE.Geometry();
@@ -244,7 +259,7 @@ function animate() {
 
     updateColors();
 
-    particleSystemIntensity.material.opacity=globalScrolled/2.5
+    particleSystemIntensity.material.opacity=globalScrolled/5
     if(mustUpdateParticles1==true) { ///OPTIMIZACION PARA PARAR ACTUALIZACION DE PARTICULAS CUANDO ESTAN ESTABLES
        for (var i = 0; i < cleanTrafico.length; i++) {
             var particle = particleSystemStations.geometry.vertices[i];
@@ -321,36 +336,49 @@ function animate() {
 
         //bgColor.set()
         //bgColor.lerp(cBlanco,globalScrolled)
-
-        if(globalScrolled>(bpoint2) ){
-                carray= interpolateColor([cNegro.r*255,cNegro.g*255,cNegro.b*255], [cBlanco.r*255,cBlanco.g*255,cBlanco.b*255],scale2(globalScrolled))
+        var linecolorArr;
+        var linesOpacity;
+        //var bigPointOpacity;
+        var smallPointOpacity;
+        var particleSystemStationsColorArr;
+        if(globalScrolled>(bpoint2) ){ //donde se vuelve negro otra vez
+            //scale2 avanza en este tramo entre 1 y 0
+                carray= interpolateColor([cNegro.r,cNegro.g,cNegro.b], [cBlanco.r,cBlanco.g,cBlanco.b],scale2(globalScrolled))
+                linecolorArr = interpolateColor( [linesColorBgNegro.r,linesColorBgNegro.g,linesColorBgNegro.b],[linesColorBgBlanco.r,linesColorBgBlanco.g,linesColorBgBlanco.b],scale2(globalScrolled))
+                particleSystemStationsColorArr = interpolateColor( [nodeParticlesColorBgNegro.r,nodeParticlesColorBgNegro.g,nodeParticlesColorBgNegro.b],[nodeParticlesColorBgBlanco.r,nodeParticlesColorBgBlanco.g,nodeParticlesColorBgBlanco.b],scale2(globalScrolled))
+                linesOpacity=0.02*scale2(globalScrolled)
+                bigPointOpacity=-0.3*scale2(globalScrolled)
             }
-        else {
-            carray= interpolateColor( [cNegro.r*255,cNegro.g*255,cNegro.b*255], [cBlanco.r*255,cBlanco.g*255,cBlanco.b*255], scale1(globalScrolled))
+        else { // en este tramo scale1 vale 0 hasta que llega a al valor bpoint1 que vale 1
+            carray= interpolateColor( [cNegro.r,cNegro.g,cNegro.b], [cBlanco.r,cBlanco.g,cBlanco.b], scale1(globalScrolled))
+            linecolorArr = interpolateColor( [linesColorBgNegro.r,linesColorBgNegro.g,linesColorBgNegro.b],[linesColorBgBlanco.r,linesColorBgBlanco.g,linesColorBgBlanco.b],scale1(globalScrolled))
+            particleSystemStationsColorArr = interpolateColor( [nodeParticlesColorBgNegro.r,nodeParticlesColorBgNegro.g,nodeParticlesColorBgNegro.b],[nodeParticlesColorBgBlanco.r,nodeParticlesColorBgBlanco.g,nodeParticlesColorBgBlanco.b],scale1(globalScrolled))
+            linesOpacity=0.02*scale1(globalScrolled)
+            bigPointOpacity=-0.3*scale1(globalScrolled)
+
         }
-        effectBloom.opacity = (1-(carray[0]/256) );
-        bgColor.setRGB(carray[0]/255,carray[1]/255,carray[2]/255)
+        //cambio color de particulas de intensidad
+        var carrayPart=interpolateColor([particlesColorBgBlanco.r,particlesColorBgBlanco.g,particlesColorBgBlanco.b], [particlesColorBgNegro.r ,particlesColorBgNegro.g ,particlesColorBgNegro.b],scaleColorParticlesIntensity(globalScrolled))
+        particleSystemStations.material.color.setRGB(particleSystemStationsColorArr[0],particleSystemStationsColorArr[1],particleSystemStationsColorArr[2]);
+        particleSystemStations.material.opacity=0.4+bigPointOpacity
+
+        particleSystemIntensity.material.color.setRGB(carrayPart[0],carrayPart[1],carrayPart[2]);
+        particleSystemIntensity.material.opacity=0.4+bigPointOpacity;
+
+        line.material.color.setRGB(linecolorArr[0],linecolorArr[1],linecolorArr[2])
+        line.material.opacity=0.05+linesOpacity;
+
+        effectBloom.opacity = (1-(carray[0]) );
+        bgColor.setRGB(carray[0],carray[1],carray[2])
         renderer.setClearColor(bgColor, 0.7+0.3*carray[0]);
 
-        if(globalScrolled>0.2){
 
-            //particleSystemIntensity.material.color=new THREE.Color(0x004400);
-            //particleSystemStations.material.color=new THREE.Color(0x1693A5);
-        }
-        else{
-            //renderer.setClearColor(0xffffff, 1);
-        }
-        //bgColor.set(lerp1(bgColor.getHex(),0xffffff,globalScrolled));
     }
 
     function interpolateColor(color1, color2, factor) {
-        if (arguments.length < 3) {
-            factor = 0.5;
-        }
-
         var result = color1.slice();
         for (var i = 0; i < 3; i++) {
-            result[i] = Math.round(result[i] + factor * (color2[i] - color1[i]));
+            result[i] = result[i] + factor * (color2[i] - color1[i]);
         }
         return result;
     };

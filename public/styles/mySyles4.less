@@ -47,7 +47,7 @@ body {
 }
 
 a {
-    color: @nrj;
+    color: @cyan;
     border-bottom: 1px dotted;
 }
 
@@ -511,7 +511,7 @@ h6 {
 
 
 #services-wrapper{
-    /*background:rgba(255,255,255,0.8);*/
+    /*background:rgba(255,255,255,0.4); */
     min-height: 100vh
 }
 #services {
@@ -751,7 +751,10 @@ button {
 #showmore {
     cursor: pointer;
     font-family: 'Source Code Pro', monospace;
-    border-color: #333;
+    border: @cyan 1px solid;
+    color:@cyan;
+    font-size:1.0em;
+    background: white;
 }
 @media (min-width: 768px) {
 
@@ -814,7 +817,7 @@ button {
         margin-top:0;
     }
     #services-wrapper,#prj_wrapper{
-        background:rgba(0, 20, 20, 0.6);
+        /*background:rgba(0, 20, 20, 0.6);*/
     }
     canvas#backgroundCanvas {
         height:200vh;
