@@ -11,7 +11,7 @@ var clock;
 var bgColor,cBlanco,cNegro;
 var linesColorBgNegro, linesColorBgBlanco, particlesColorBgNegro, particlesColorBgBlanco;
 
-
+var MOBILE_THREESHOLD = 800
 
 var bpoint1, bpoint2
 /*document.onmousemove = function(e){
@@ -28,6 +28,9 @@ function startThree() {
     bpoint1=prjh/totalh
     bpoint2=teamh/totalh
 
+    width = window.innerWidth;
+	height = window.innerHeight;
+
     //d3 function scales
     scale1 = d3.scaleLinear()
     .domain([bpoint1/2, bpoint1])
@@ -36,6 +39,12 @@ function startThree() {
     scale2 = d3.scaleLinear()
     .domain([bpoint2, bpoint2+teamsizeh-0.01])
     .range([1, 0]).clamp(true)
+
+    if(height< MOBILE_THREESHOLD) {
+        scale2 = d3.scaleLinear()
+        .domain([bpoint2, bpoint2+0.04])
+        .range([1, 0]).clamp(true)
+    }
 
     scaleColorParticlesIntensity = d3.scaleLinear()
     .domain([bpoint2, bpoint2+teamsizeh-0.01])
@@ -66,9 +75,8 @@ function startThree() {
     camera.position.y = -1000;
     camera.position.x=-300
     camera.lookAt(0,0,0)
-    width = window.innerWidth;
-	height = window.innerHeight;
-    if(height< 800) {
+
+    if(height< MOBILE_THREESHOLD) {
         height=height*1.2 //esto es por que en el iphone al hacer scroll el innerheight se amplia porque desaparece una barra de menu y se veia negro la parte de abjao
         //console.log("cambio height")
     }
@@ -254,12 +262,12 @@ function startThree() {
 
 function animate() {
 
-    if(globalScrolled<0.3) status=0
+    if(globalScrolled<0.6) status=0
     else status=1
 
     updateColors();
 
-    particleSystemIntensity.material.opacity=globalScrolled/5
+    //particleSystemIntensity.material.opacity=globalScrolled/5
     if(mustUpdateParticles1==true) { ///OPTIMIZACION PARA PARAR ACTUALIZACION DE PARTICULAS CUANDO ESTAN ESTABLES
        for (var i = 0; i < cleanTrafico.length; i++) {
             var particle = particleSystemStations.geometry.vertices[i];
@@ -363,7 +371,9 @@ function animate() {
         particleSystemStations.material.opacity=0.4+bigPointOpacity
 
         particleSystemIntensity.material.color.setRGB(carrayPart[0],carrayPart[1],carrayPart[2]);
-        particleSystemIntensity.material.opacity=0.4+bigPointOpacity;
+        if(status==1)
+            particleSystemIntensity.material.opacity=0.4+bigPointOpacity;
+        else particleSystemIntensity.material.opacity=0;
 
         line.material.color.setRGB(linecolorArr[0],linecolorArr[1],linecolorArr[2])
         line.material.opacity=0.05+linesOpacity;
