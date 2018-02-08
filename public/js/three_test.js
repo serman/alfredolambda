@@ -148,7 +148,9 @@ function startThree() {
     //sistema de particulas
     // create the particle variables
      _size=8
+     _size=_size/window.devicePixelRatio
     if(window.width<1024) _size=6
+    //
     pMaterialStations = new THREE.PointsMaterial({
         color:0xDDFFDD,
         size: _size,
@@ -162,8 +164,9 @@ function startThree() {
     });
     pMaterialStations.opacity=0.4
     _size=5;
-
+    _size=_size/window.devicePixelRatio
     if(window.width<1024) _size=3
+
 /// MATERIAL INTENSIDAD
     pMaterialIntensity=pMaterialStations.clone()
     pMaterialIntensity.color=new THREE.Color(0x44FF44);

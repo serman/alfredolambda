@@ -160,9 +160,12 @@ function generateMap(){
         if ((code in datos_ayto_code)){
             d.rtdata=datos_ayto_code[code][0];
             if(d.rtdata.intensidad<0) return;
-
-            if(! (count%4==0))
-                cleanTrafico.push(d)
+            if(window.innerWidth>MOBILE_THREESHOLD){ //para reducir carga del ordenador elimino algunas particulas
+                if(! (count%4==0))   cleanTrafico.push(d)
+            }
+            else{
+                if(! (count%2==0))   cleanTrafico.push(d)
+            }
             count++
         }
         else return;
@@ -170,7 +173,7 @@ function generateMap(){
 
     //trafico=cleanTrafico
     //geo1=d3.geoTransverseMercator().rotate([11.915,0,0]).fitSize([width-20, height-20]], trafico);
-    geo1=d3.geoTransverseMercator().fitSize([width-20, height-20], trafico);
+    geo1=d3.geoTransverseMercator().fitSize([width, height], trafico);
     for (var i=0; i<cleanTrafico.length; i++){
         var d= cleanTrafico[i];
     //    console.log(d)
